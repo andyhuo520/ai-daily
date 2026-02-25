@@ -1,0 +1,11 @@
+{
+  "name": "3d-interactive-lesson",
+  "version": "1.0.0",
+  "description": "创建基于 Three.js 和 SVG 的 3D 互动教学课件",
+  "author": "AI Assistant",
+  "license": "MIT",
+  "tags": ["education", "3d", "threejs", "interactive", "html"],
+  "entry": {
+    "cli": "scripts/generate-lesson.py"
+  }
+}

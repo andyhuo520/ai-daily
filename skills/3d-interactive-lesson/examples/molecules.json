@@ -1,0 +1,10 @@
+{
+  "title": "分子结构探索",
+  "subject": "化学",
+  "topic": "分子与化学键",
+  "description": "通过3D可视化探索常见分子的空间结构。了解水分子、甲烷等分子的键角、形状和极性。",
+  "theme": "light",
+  "models": "water,methane,cell",
+  "interactive": true,
+  "quizzes": true
+}

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分子结构探索</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #242424;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #00d4ff;
+            --accent-glow: #00ff88;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+        
+        .navbar h1 {
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .subject-badge {
+            padding: 4px 12px;
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 20px;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        
+        /* 主容器 */
+        .main-container {
+            padding-top: 60px;
+            min-height: 100vh;
+        }
+        
+        /* 3D 场景区域 */
+        .scene-section {
+            position: relative;
+            height: 70vh;
+            background: var(--bg-secondary);
+        }
+        
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .scene-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            max-width: 300px;
+        }
+        
+        .scene-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(26, 26, 26, 0.9);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .control-btn:hover {
+            background: rgba(0, 212, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        /* 信息卡片 */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+        
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .info-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* 详情弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+        
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 测验区域 */
+        .quiz-section {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+        }
+        
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .quiz-option {
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quiz-option:hover {
+            border-color: rgba(0, 212, 255, 0.5);
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .quiz-option.correct {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+        
+        .quiz-option.wrong {
+            border-color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        /* 加载动画 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 标注 */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 212, 255, 0.9);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            transform: translate(-50%, -100%);
+            margin-top: -10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .annotation.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>📚 分子结构探索</h1>
+        <div class="nav-info">
+            <span class="subject-badge">科学</span>
+            <span>分子与化学键</span>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <!-- 3D 场景 -->
+        <section class="scene-section">
+            <div id="canvas-container"></div>
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">加载 3D 场景中...</p>
+            </div>
+            
+            <div class="scene-overlay">
+                <h3 style="color: var(--accent); margin-bottom: 0.5rem;">🖱️ 交互指南</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                    • 拖拽旋转视角<br>
+                    • 滚轮缩放<br>
+                    • 点击对象查看详情
+                </p>
+            </div>
+            
+            <div class="scene-controls">
+                <button class="control-btn" onclick="resetCamera()" title="重置视角">↺</button>
+                <button class="control-btn" onclick="toggleAutoRotate()" title="自动旋转">⟲</button>
+                <button class="control-btn" onclick="toggleTheme()" title="切换主题">☀</button>
+            </div>
+        </section>
+        
+        <!-- 内容区域 -->
+        <section class="content-section">
+            <h2 class="section-title">课程介绍</h2>
+            <div class="section-content">
+                本课程将带您深入了解分子与化学键的奥秘。
+            </div>
+            
+            <h2 class="section-title">知识点</h2>
+            <div class="info-cards" id="info-cards">
+                
+        <div class="info-card" onclick="showModal('水分子', '<p>这是水分子的详细信息。</p><p>您可以在这里添加更多描述、公式、图片等内容。</p>' )">
+            <h3>水分子</h3>
+            <p>点击查看详细信息</p>
+        </div>
+        <div class="info-card" onclick="showModal('甲烷', '<p>这是甲烷的详细信息。</p><p>您可以在这里添加更多描述、公式、图片等内容。</p>' )">
+            <h3>甲烷</h3>
+            <p>点击查看详细信息</p>
+        </div>
+        <div class="info-card" onclick="showModal('细胞', '<p>这是细胞的详细信息。</p><p>您可以在这里添加更多描述、公式、图片等内容。</p>' )">
+            <h3>细胞</h3>
+            <p>点击查看详细信息</p>
+        </div>
+            </div>
+        </section>
+        
+        
+        <section class="quiz-section">
+            <div class="quiz-container">
+                <h2 class="section-title">📝 知识测验</h2>
+                <div id="quiz-content">
+                    <div class="quiz-question">哪个行星是太阳系中最大的？</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A. 地球</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B. 木星</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C. 土星</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D. 火星</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 详情弹窗 -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2 id="modal-title" style="color: var(--accent); margin-bottom: 1rem;"></h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>由 3D Interactive Lesson Generator 生成 · 2026-02-26</p>
+    </footer>
+    
+    <script>
+        // 3D 场景变量
+        let scene, camera, renderer, controls;
+        let objects = {};
+        let autoRotate = false;
+        let currentTheme = 'dark';
+        
+        // 初始化场景
+        function initScene() {
+            const container = document.getElementById('canvas-container');
+            
+            // 场景
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(currentTheme === 'dark' ? 0x0a0a0a : 0xf5f5f5);
+            
+            // 相机
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 5, 15);
+            
+            // 渲染器
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.shadowMap.enabled = true;
+            container.appendChild(renderer.domElement);
+            
+            // 控制器
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 5;
+            controls.maxDistance = 50;
+            
+            // 灯光
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+            
+            // 点光源（用于效果）
+            const pointLight = new THREE.PointLight(0x00d4ff, 0.5, 100);
+            pointLight.position.set(0, 0, 0);
+            scene.add(pointLight);
+            
+            // 创建模型
+            createModels();
+            
+            // 隐藏加载
+            document.getElementById('loading').style.display = 'none';
+            
+            // 开始渲染
+            animate();
+            
+            // 窗口调整
+            window.addEventListener('resize', onWindowResize);
+            
+            // 点击事件
+            renderer.domElement.addEventListener('click', onMouseClick);
+        }
+        
+        // 创建模型
+        function createModels() {
+            const models = [{"id": "water", "info": "<p>\u8fd9\u662f\u6c34\u5206\u5b50\u7684\u8be6\u7ec6\u4fe1\u606f\u3002</p><p>\u60a8\u53ef\u4ee5\u5728\u8fd9\u91cc\u6dfb\u52a0\u66f4\u591a\u63cf\u8ff0\u3001\u516c\u5f0f\u3001\u56fe\u7247\u7b49\u5185\u5bb9\u3002</p>"}, {"id": "methane", "info": "<p>\u8fd9\u662f\u7532\u70f7\u7684\u8be6\u7ec6\u4fe1\u606f\u3002</p><p>\u60a8\u53ef\u4ee5\u5728\u8fd9\u91cc\u6dfb\u52a0\u66f4\u591a\u63cf\u8ff0\u3001\u516c\u5f0f\u3001\u56fe\u7247\u7b49\u5185\u5bb9\u3002</p>"}, {"id": "cell", "info": "<p>\u8fd9\u662f\u7ec6\u80de\u7684\u8be6\u7ec6\u4fe1\u606f\u3002</p><p>\u60a8\u53ef\u4ee5\u5728\u8fd9\u91cc\u6dfb\u52a0\u66f4\u591a\u63cf\u8ff0\u3001\u516c\u5f0f\u3001\u56fe\u7247\u7b49\u5185\u5bb9\u3002</p>"}];
+            
+            models.forEach((modelData, index) => {
+                const def = {"sun": {"type": "sphere", "radius": 5, "color": 16627731, "emissive": 16627731, "name": "\u592a\u9633"}, "mercury": {"type": "sphere", "radius": 0.8, "color": 10855845, "name": "\u6c34\u661f"}, "venus": {"type": "sphere", "radius": 1.2, "color": 15120384, "name": "\u91d1\u661f"}, "earth": {"type": "sphere", "radius": 1.3, "color": 2241535, "texture": "earth", "name": "\u5730\u7403"}, "mars": {"type": "sphere", "radius": 1.0, "color": 16729344, "name": "\u706b\u661f"}, "jupiter": {"type": "sphere", "radius": 3.5, "color": 13935988, "stripes": true, "name": "\u6728\u661f"}, "saturn": {"type": "sphere", "radius": 3.0, "color": 16044095, "rings": true, "name": "\u571f\u661f"}, "uranus": {"type": "sphere", "radius": 2.0, "color": 5230823, "name": "\u5929\u738b\u661f"}, "neptune": {"type": "sphere", "radius": 1.9, "color": 3043276, "name": "\u6d77\u738b\u661f"}, "cube": {"type": "box", "size": [2, 2, 2], "color": 65280, "name": "\u7acb\u65b9\u4f53"}, "sphere": {"type": "sphere", "radius": 1.5, "color": 16711680, "name": "\u7403\u4f53"}, "cylinder": {"type": "cylinder", "radius": 1, "height": 3, "color": 255, "name": "\u5706\u67f1\u4f53"}, "cone": {"type": "cone", "radius": 1.5, "height": 3, "color": 16711935, "name": "\u5706\u9525\u4f53"}, "torus": {"type": "torus", "radius": 2, "tube": 0.5, "color": 65535, "name": "\u5706\u73af"}, "water": {"type": "molecule", "formula": "H2O", "name": "\u6c34\u5206\u5b50"}, "methane": {"type": "molecule", "formula": "CH4", "name": "\u7532\u70f7"}, "dna": {"type": "dna", "name": "DNA \u53cc\u87ba\u65cb"}, "cell": {"type": "sphere", "radius": 3, "color": 9498256, "transparent": true, "opacity": 0.7, "name": "\u7ec6\u80de"}}[modelData.id];
+                if (!def) return;
+                
+                let geometry, material, mesh;
+                
+                switch(def.type) {
+                    case 'sphere':
+                        geometry = new THREE.SphereGeometry(def.radius, 32, 32);
+                        break;
+                    case 'box':
+                        geometry = new THREE.BoxGeometry(...def.size);
+                        break;
+                    case 'cylinder':
+                        geometry = new THREE.CylinderGeometry(def.radius, def.radius, def.height, 32);
+                        break;
+                    case 'cone':
+                        geometry = new THREE.ConeGeometry(def.radius, def.height, 32);
+                        break;
+                    case 'torus':
+                        geometry = new THREE.TorusGeometry(def.radius, def.tube, 16, 100);
+                        break;
+                    default:
+                        geometry = new THREE.SphereGeometry(1, 32, 32);
+                }
+                
+                material = new THREE.MeshPhongMaterial({
+                    color: def.color,
+                    emissive: def.emissive || 0x000000,
+                    transparent: def.transparent || false,
+                    opacity: def.opacity || 1.0,
+                    shininess: 100
+                });
+                
+                mesh = new THREE.Mesh(geometry, material);
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+                
+                // 位置（如果是太阳系模型，按轨道排列）
+                if ('分子与化学键'.includes('太阳系') || '分子与化学键'.includes('行星')) {
+                    const distance = (index + 1) * 3;
+                    const angle = (index / models.length) * Math.PI * 2;
+                    mesh.position.set(Math.cos(angle) * distance, 0, Math.sin(angle) * distance);
+                } else {
+                    mesh.position.set((index - models.length/2) * 4, 0, 0);
+                }
+                
+                mesh.userData = { name: def.name, info: modelData.info || '' };
+                objects[def.name] = mesh;
+                scene.add(mesh);
+                
+                // 如果是土星，添加环
+                if (def.rings) {
+                    const ringGeometry = new THREE.RingGeometry(def.radius * 1.4, def.radius * 2.2, 64);
+                    const ringMaterial = new THREE.MeshBasicMaterial({
+                        color: 0xC4A35A,
+                        side: THREE.DoubleSide,
+                        transparent: true,
+                        opacity: 0.6
+                    });
+                    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                    ring.rotation.x = Math.PI / 2;
+                    mesh.add(ring);
+                }
+            });
+        }
+        
+        // 动画循环
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            controls.update();
+            
+            if (autoRotate) {
+                scene.rotation.y += 0.001;
+            }
+            
+            // 自转动画
+            Object.values(objects).forEach((obj, i) => {
+                obj.rotation.y += 0.01 * (i + 1) * 0.1;
+            });
+            
+            renderer.render(scene, camera);
+        }
+        
+        // 窗口调整
+        function onWindowResize() {
+            const container = document.getElementById('canvas-container');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+        
+        // 鼠标点击
+        function onMouseClick(event) {
+            const mouse = new THREE.Vector2();
+            const container = document.getElementById('canvas-container');
+            const rect = container.getBoundingClientRect();
+            
+            mouse.x = ((event.clientX - rect.left) / container.clientWidth) * 2 - 1;
+            mouse.y = -((event.clientY - rect.top) / container.clientHeight) * 2 + 1;
+            
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
+            
+            const intersects = raycaster.intersectObjects(Object.values(objects));
+            
+            if (intersects.length > 0) {
+                const obj = intersects[0].object;
+                showModal(obj.userData.name, obj.userData.info);
+            }
+        }
+        
+        // 重置相机
+        function resetCamera() {
+            camera.position.set(0, 5, 15);
+            camera.lookAt(0, 0, 0);
+            controls.reset();
+        }
+        
+        // 切换自动旋转
+        function toggleAutoRotate() {
+            autoRotate = !autoRotate;
+        }
+        
+        // 切换主题
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            location.reload(); // 简化处理，实际应该动态切换CSS变量
+        }
+        
+        // 显示弹窗
+        function showModal(title, content) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = content;
+            document.getElementById('detail-modal').classList.add('active');
+        }
+        
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('detail-modal').classList.remove('active');
+        }
+        
+        // 点击弹窗外部关闭
+        document.getElementById('detail-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
+        // 测验功能
+        
+        function checkAnswer(element, isCorrect) {
+            element.classList.add(isCorrect ? 'correct' : 'wrong');
+            if (isCorrect) {
+                setTimeout(() => alert('回答正确！'), 100);
+            }
+        }
+        
+        
+        // 初始化
+        initScene();
+    </script>
+</body>
+</html>

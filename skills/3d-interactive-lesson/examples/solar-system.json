@@ -1,0 +1,10 @@
+{
+  "title": "太阳系探索之旅",
+  "subject": "科学",
+  "topic": "太阳系行星",
+  "description": "欢迎来到太阳系探索之旅！在这个互动课程中，您将了解八大行星的特点、大小对比和轨道运行。通过3D可视化，您可以直观地感受太阳系的宏伟与神秘。",
+  "theme": "dark",
+  "models": "sun,mercury,venus,earth,mars,jupiter,saturn,uranus,neptune",
+  "interactive": true,
+  "quizzes": true
+}
