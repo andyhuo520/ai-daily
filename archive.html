@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Daily - 往期归档</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-beige': '#FDFCFA',
+                        'luxury-gold': '#B8941F',
+                        'deep-brown': '#1A1A1A',
+                        'soft-gray': '#4A4A4A',
+                        'light-gold': '#E8DCC4',
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif SC"', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Serif SC', Georgia, serif; background-color: #FDFCFA; color: #1A1A1A; }
+        .gold-gradient { background: linear-gradient(135deg, #B8941F 0%, #E8DCC4 50%, #B8941F 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(184, 148, 31, 0.15); }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-luxury-gold/20 backdrop-blur-md bg-warm-beige/95">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold gold-gradient">AI Daily</a>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="index.html" class="text-deep-brown hover:text-luxury-gold transition-colors">今日</a>
+                    <span class="text-luxury-gold font-medium">往期</span>
+                    <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="text-deep-brown hover:text-luxury-gold transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-16 px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gold-gradient">往期归档</h1>
+        <p class="text-soft-gray text-lg max-w-2xl mx-auto">
+            浏览历史日报，追踪 AI 行业发展脉络
+        </p>
+    </header>
+
+    <!-- Archive Grid -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <!-- 2026年2月 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 pb-4 border-b-2 border-luxury-gold">2026年2月</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 2月26日 -->
+                <a href="index.html" class="card-hover block bg-white/50 p-6 rounded-xl border border-luxury-gold/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl font-bold text-luxury-gold">26</span>
+                        <span class="text-sm text-soft-gray">周四</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">增强版第2期</h3>
+                    <p class="text-soft-gray text-sm mb-4">五角大楼与Anthropic冲突、AI语言危机、Claude遭黑客利用</p>
+                    <div class="flex items-center gap-2 text-xs text-luxury-gold">
+                        <span class="iconify" data-icon="lucide:file-text"></span>
+                        <span>约 18,000 字</span>
+                    </div>
+                </a>
+
+                <!-- 2月25日 -->
+                <a href="ai-daily-2025-02-25.html" class="card-hover block bg-white/50 p-6 rounded-xl border border-luxury-gold/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl font-bold text-luxury-gold">25</span>
+                        <span class="text-sm text-soft-gray">周三</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">创刊号</h3>
+                    <p class="text-soft-gray text-sm mb-4">AI战争游戏、Meta稳定币、Qwen3.5发布、能量模型新方向</p>
+                    <div class="flex items-center gap-2 text-xs text-luxury-gold">
+                        <span class="iconify" data-icon="lucide:file-text"></span>
+                        <span>约 15,000 字</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 2025年2月 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 pb-4 border-b-2 border-luxury-gold">2025年2月</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 2月26日 (旧版) -->
+                <a href="ai-daily-2025-02-26.html" class="card-hover block bg-white/50 p-6 rounded-xl border border-luxury-gold/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl font-bold text-luxury-gold">26</span>
+                        <span class="text-sm text-soft-gray">周三</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">第2期</h3>
+                    <p class="text-soft-gray text-sm mb-4">AI战争游戏安全边界、ChatGPT记忆争议、马斯克AI立场</p>
+                    <div class="flex items-center gap-2 text-xs text-luxury-gold">
+                        <span class="iconify" data-icon="lucide:file-text"></span>
+                        <span>约 12,000 字</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-luxury-gold/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-2xl font-bold gold-gradient mb-2">AI Daily</h3>
+            <p class="text-soft-gray text-sm mb-4">每日 AI 资讯精选 · 深度解读</p>
+            <p class="text-soft-gray text-xs">
+                © 2025-2026 AI Daily · Generated by OpenClaw
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
