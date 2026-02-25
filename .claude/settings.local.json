@@ -1,0 +1,81 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/file-activity-hook.sh read-start"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/file-activity-hook.sh write-start"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/thinking-hook.sh thinking-end"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/file-activity-hook.sh read-end"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/file-activity-hook.sh write-end"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/thinking-hook.sh thinking-start"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/user/codemap/hooks/thinking-hook.sh thinking-end"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(/Users/user/codemap/hooks/file-activity-hook.sh read:*)",
+      "Bash(/Users/user/codemap/hooks/file-activity-hook.sh write:*)",
+      "Bash(/Users/user/codemap/hooks/thinking-hook.sh thinking-start:*)",
+      "Bash(/Users/user/codemap/hooks/thinking-hook.sh thinking-end:*)"
+    ]
+  }
+}

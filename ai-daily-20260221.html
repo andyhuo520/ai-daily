@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智讯 · 2026年02月21日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --cream-dark: #F5F0E8;
+            --beige: #E8E0D5;
+            --beige-dark: #D4C9B8;
+            --gold: #C9A962;
+            --gold-light: #D4B978;
+            --gold-dark: #B8983F;
+            --charcoal: #2C2824;
+            --charcoal-light: #4A4540;
+            --warm-gray: #8B8680;
+            --border: rgba(201,169,98,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Header - Luxury Masthead */
+        .masthead {
+            background: linear-gradient(180deg, var(--charcoal) 0%, #1A1815 100%);
+            color: var(--cream);
+            padding: 80px 40px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .masthead::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+        }
+        
+        .masthead::after {
+            content: '◆';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 12px;
+            opacity: 0.6;
+        }
+        
+        .edition-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 24px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .masthead h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 12px;
+            margin-bottom: 16px;
+            color: var(--cream);
+        }
+        
+        .masthead-subtitle {
+            font-size: 14px;
+            color: var(--gold);
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+        }
+        
+        .masthead-date {
+            font-size: 15px;
+            color: var(--beige-dark);
+            letter-spacing: 2px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+        
+        /* Section Divider */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 60px 0;
+            color: var(--gold);
+        }
+        
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            max-width: 200px;
+        }
+        
+        .section-divider span {
+            padding: 0 20px;
+            font-size: 18px;
+        }
+        
+        /* Featured Article - Hero */
+        .hero-article {
+            background: var(--cream-dark);
+            border: 1px solid var(--beige);
+            padding: 50px;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .hero-article::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--gold);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .hero-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .hero-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            max-width: 100px;
+        }
+        
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+        
+        .hero-meta {
+            font-size: 13px;
+            color: var(--warm-gray);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .hero-content {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--charcoal-light);
+            margin-bottom: 30px;
+        }
+        
+        .hero-commentary {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 25px 30px;
+            margin: 0 -50px -50px -50px;
+            position: relative;
+        }
+        
+        .hero-commentary::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 60px;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .commentary-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .commentary-text {
+            font-size: 15px;
+            line-height: 1.8;
+            padding-left: 30px;
+        }
+        
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            transition: all 0.3s;
+        }
+        
+        .hero-link:hover {
+            color: var(--gold-light);
+            gap: 15px;
+        }
+        
+        /* Article Cards */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .article-card {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 30px;
+            padding: 35px;
+            background: var(--cream-dark);
+            border: 1px solid var(--beige);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .article-card:hover {
+            background: #FFFDF9;
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 60px rgba(44,40,36,0.08);
+        }
+        
+        .article-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            opacity: 0.8;
+        }
+        
+        .article-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .article-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+        
+        .article-summary {
+            font-size: 15px;
+            color: var(--charcoal-light);
+            line-height: 1.9;
+        }
+        
+        .article-commentary {
+            font-size: 14px;
+            color: var(--gold-dark);
+            font-style: italic;
+            padding-left: 20px;
+            border-left: 2px solid var(--gold);
+            line-height: 1.7;
+        }
+        
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--beige);
+        }
+        
+        .article-source {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+        }
+        
+        .article-link {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        
+        .article-link:hover {
+            color: var(--gold);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--beige);
+            padding: 80px 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer-brand {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 8px;
+            color: var(--cream);
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+            opacity: 0.5;
+        }
+        
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--warm-gray);
+            letter-spacing: 1px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .masthead {
+                padding: 50px 20px 40px;
+            }
+            
+            .masthead h1 {
+                font-size: 36px;
+                letter-spacing: 6px;
+            }
+            
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .hero-article {
+                padding: 30px;
+            }
+            
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .hero-commentary {
+                margin: 0 -30px -30px -30px;
+                padding: 20px 25px;
+            }
+            
+            .article-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 25px;
+            }
+            
+            .article-number {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="edition-badge">精选 Edition</div>
+        <h1>智　讯</h1>
+        <p class="masthead-subtitle">每日 AI 行业洞察</p>
+        <p class="masthead-date">2026年02月21日</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav style="background: var(--cream-dark); border-bottom: 1px solid var(--beige); padding: 20px 40px; text-align: center;">
+        <a href="archive.html" style="color: var(--charcoal); text-decoration: none; font-size: 14px; letter-spacing: 2px; margin: 0 20px; padding: 8px 16px; border: 1px solid transparent; transition: all 0.3s ease;">📅 往期归档</a>
+    </nav>
+    
+    <div class="container">
+
+        <!-- Hero Article -->
+        <article class="hero-article">
+            <div class="hero-label">封面故事</div>
+            <h2 class="hero-title">Chris Lattner: Claude C Compiler</h2>
+            <div class="hero-meta">
+                <span>来源 · Hacker News</span>
+                <span>2026-02-21</span>
+            </div>
+            <p class="hero-content"></p>
+            <div class="hero-commentary">
+                <div class="commentary-label">热辣点评</div>
+                <div class="commentary-text">值得关注的重要动态</div>
+                <a href="https://www.modular.com/blog/the-claude-c-compiler-what-it-reveals-about-the-future-of-software" class="hero-link" target="_blank">阅读原文 →</a>
+            </div>
+        </article>
+        
+        <div class="section-divider"><span>◆</span></div>
+
+        <!-- Article List -->
+        <div class="article-list">
+
+            <a class="article-card" href="https://chatjimmy.ai/" target="_blank">
+                <div class="article-number">02</div>
+                <div class="article-content">
+                    <h3 class="article-title">Instant AI Response</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://github.com/alvi-se/ai-ublock-blacklist" target="_blank">
+                <div class="article-number">03</div>
+                <div class="article-content">
+                    <h3 class="article-title">AI uBlock Blacklist</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://www.june.kim/cord" target="_blank">
+                <div class="article-number">04</div>
+                <div class="article-content">
+                    <h3 class="article-title">Cord: Coordinating Trees of AI Agents</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://news.ycombinator.com/item?id=47096131" target="_blank">
+                <div class="article-number">05</div>
+                <div class="article-content">
+                    <h3 class="article-title">Show HN: Agent Passport – OAuth-like identity verification for AI agents</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://juno-labs.com/blogs/every-company-building-your-ai-assistant-is-an-ad-company" target="_blank">
+                <div class="article-number">06</div>
+                <div class="article-content">
+                    <h3 class="article-title">Every company building your AI assistant is now an ad company</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://www.anthropic.com/news/claude-code-security" target="_blank">
+                <div class="article-number">07</div>
+                <div class="article-content">
+                    <h3 class="article-title">Making frontier cybersecurity capabilities available to defenders</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://techcrunch.com/2026/02/20/indias-sarvam-launches-indus-ai-chat-app-as-competition-heats-up/" target="_blank">
+                <div class="article-number">08</div>
+                <div class="article-content">
+                    <h3 class="article-title">India’s Sarvam launches Indus AI chat app as competition heats up</h3>
+                    <p class="article-summary">Sarvam's Indus chat app is currently available in beta....</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">TechCrunch</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://techcrunch.com/video/the-creator-economys-ad-revenue-problem-and-indias-ai-ambitions/" target="_blank">
+                <div class="article-number">09</div>
+                <div class="article-content">
+                    <h3 class="article-title">The creator economy’s ad revenue problem and India’s AI ambitions</h3>
+                    <p class="article-summary">The creator economy is evolving fast, and ad revenue alone isn’t cutting it anymore. YouTubers are launching product lines, acquiring startu...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">TechCrunch</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://github.com/ggml-org/llama.cpp/discussions/19759" target="_blank">
+                <div class="article-number">10</div>
+                <div class="article-content">
+                    <h3 class="article-title">Ggml.ai joins Hugging Face to ensure the long-term progress of Local AI</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="article-card" href="https://taalas.com/the-path-to-ubiquitous-ai/" target="_blank">
+                <div class="article-number">11</div>
+                <div class="article-content">
+                    <h3 class="article-title">The path to ubiquitous AI (17k tokens/sec)</h3>
+                    <p class="article-summary">...</p>
+                    <div class="article-commentary">值得关注</div>
+                    <div class="article-footer">
+                        <span class="article-source">Hacker News</span>
+                        <span class="article-link">阅读全文 →</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-brand">智　讯</div>
+        <p class="footer-tagline">全球 AI 行业精选</p>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">2026年02月21日 · 精心甄选</p>
+    </footer>
+</body>
+</html>
