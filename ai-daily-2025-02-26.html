@@ -12,10 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'warm-beige': '#FAF7F2',
-                        'luxury-gold': '#C9A962',
-                        'deep-brown': '#2C2416',
-                        'soft-gray': '#6B6560',
+                        'warm-beige': '#FDFCFA',
+                        'luxury-gold': '#B8941F',
+                        'deep-brown': '#1A1A1A',
+                        'soft-gray': '#4A4A4A',
                         'light-gold': '#E8DCC4',
                     },
                     fontFamily: {
@@ -26,7 +26,7 @@
         }
     </script>
     <style>
-        body { font-family: 'Noto Serif SC', Georgia, serif; background-color: #FAF7F2; color: #2C2416; }
+        body { font-family: 'Noto Serif SC', Georgia, serif; background-color: #FDFCFA; color: #1A1A1A; }
         .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #C9A962, #E8DCC4); z-index: 1000; transition: width 0.1s ease; }
         .gold-gradient { background: linear-gradient(135deg, #C9A962 0%, #E8DCC4 50%, #C9A962 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .gold-border { border-color: #C9A962; }
@@ -40,8 +40,8 @@
         .toc-link:hover::before { opacity: 1; }
         .scroll-indicator { animation: bounce 2s infinite; }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-        .nav-fixed { backdrop-filter: blur(12px); background: rgba(250, 247, 242, 0.9); }
-        .word-count { font-size: 0.75rem; color: #6B6560; font-style: italic; }
+        .nav-fixed { backdrop-filter: blur(12px); background: rgba(253, 252, 250, 0.95); }
+        .word-count { font-size: 0.75rem; color: #4A4A4A; font-style: italic; }
         .back-to-top { position: fixed; bottom: 40px; right: 40px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #C9A962, #E8DCC4); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3); }
         .back-to-top.visible { opacity: 1; }
         .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(201, 169, 98, 0.4); }
