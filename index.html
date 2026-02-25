@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智讯 · AI日报 | AI Daily Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FAF7F2',
+                        'cream-dark': '#F5F0E8',
+                        'beige': '#E8E0D5',
+                        'gold': '#C9A962',
+                        'gold-light': '#D4B978',
+                        'charcoal': '#2C2824',
+                        'charcoal-light': '#4A4540',
+                        'warm-gray': '#8B8680',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'Noto Serif SC', 'serif'],
+                        'body': ['Inter', 'Noto Serif SC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(180deg, #FAF7F2 0%, #F5F0E8 100%);
+            font-family: 'Inter', 'Noto Serif SC', sans-serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #C9A962 0%, #D4B978 50%, #B8983F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .archive-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .archive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(44, 40, 36, 0.1);
+        }
+        .latest-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="text-charcoal antialiased min-h-screen">
+    
+    <!-- Header -->
+    <header class="pt-20 pb-12 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="inline-block mb-6">
+                <span class="text-xs tracking-[0.4em] text-gold uppercase">AI Daily Report</span>
+            </div>
+            
+            <h1 class="font-serif text-6xl md:text-7xl font-medium mb-6">
+                <span class="gold-gradient-text italic">智讯</span>
+            </h1>
+            
+            <p class="text-warm-gray text-xl mb-4">人工智能日报</p>
+            
+            <p class="text-charcoal-light max-w-2xl mx-auto leading-relaxed">
+                每日精选全球 AI 行业最新动态、深度分析与前沿工具，为您呈现高质量的中文 AI 资讯。
+            </p>
+            
+            <div class="flex items-center justify-center mt-8 space-x-4">
+                <div class="h-px w-24 bg-gradient-to-r from-transparent to-gold"></div>
+                <span class="iconify text-gold text-2xl" data-icon="phosphor:sparkle"></span>
+                <div class="h-px w-24 bg-gradient-to-l from-transparent to-gold"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Latest Issue -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center space-x-2 mb-8">
+                <span class="iconify text-gold text-xl" data-icon="phosphor:star"></span>
+                <span class="text-xs tracking-[0.3em] text-gold uppercase">最新一期</span>
+            </div>
+
+            <a href="./ai-daily-2025-02-25.html" class="block bg-white border-2 border-gold/30 p-8 md:p-10 archive-card relative overflow-hidden">
+                <div class="absolute top-4 right-4">
+                    <span class="latest-badge bg-gold text-white text-xs px-3 py-1 rounded-full font-medium">LATEST</span>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold" data-icon="phosphor:calendar-blank"></span>
+                            <span class="text-lg font-medium">2025年2月25日</span>
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">
+                            印度AI市场的<span class="gold-gradient-text">黄金机遇</span>
+                        </h2>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">MatX 5亿美元融资</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">Uber AI数字分身</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">HyperNova 60B</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">企业AI Agent研究</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2 text-gold">
+                        <span class="text-sm">阅读本期</span>
+                        <span class="iconify text-xl" data-icon="phosphor:arrow-right"></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center space-x-2 mb-8">
+                <span class="iconify text-gold text-xl" data-icon="phosphor:archive-box"></span>
+                <span class="text-xs tracking-[0.3em] text-gold uppercase">往期回顾</span>
+            </div>
+
+            <div class="space-y-4">
+                <a href="./ai-daily-2025-02-25.html" class="block bg-white border border-beige p-6 archive-card">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="font-serif text-2xl text-gold">02.25</div>
+                            <div>
+                                <div class="font-medium">2025年2月25日</div>
+                                <div class="text-sm text-warm-gray">印度AI市场 · MatX融资 · Uber AI分身 · HyperNova 60B</div>
+                            </div>
+                        </div>
+                        <span class="iconify text-gold" data-icon="phosphor:arrow-right"></span>
+                    </div>
+                </a>
+
+                <a href="./ai-daily-20260221.html" class="block bg-white border border-beige p-6 archive-card opacity-70">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="font-serif text-2xl text-gold">02.21</div>
+                            <div>
+                                <div class="font-medium">2025年2月21日</div>
+                                <div class="text-sm text-warm-gray">创刊号</div>
+                            </div>
+                        </div>
+                        <span class="iconify text-gold" data-icon="phosphor:arrow-right"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-cream-dark border border-beige">
+                    <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:newspaper"></span>
+                    <h3 class="font-medium mb-2">行业动态</h3>
+                    <p class="text-sm text-warm-gray">精选全球AI行业最新资讯</p>
+                </div>
+                
+                <div class="text-center p-6 bg-cream-dark border border-beige">
+                    <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:wrench"></span>
+                    <h3 class="font-medium mb-2">工具推荐</h3>
+                    <p class="text-sm text-warm-gray">发现提升效率的AI工具</p>
+                </div>
+                
+                <div class="text-center p-6 bg-cream-dark border border-beige">
+                    <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:book-open"></span>
+                    <h3 class="font-medium mb-2">教程资源</h3>
+                    <p class="text-sm text-warm-gray">深度教程与实战指南</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe -->
+    <section class="py-16">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:bell"></span>
+            <h2 class="font-serif text-2xl font-medium mb-4">每日更新</h2>
+            <p class="text-warm-gray mb-6">每天早上 7:00（北京时间）自动推送</p>
+            <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal text-cream px-6 py-3 rounded-lg hover:bg-charcoal-light transition-colors">
+                <span class="iconify" data-icon="phosphor:github-logo"></span>
+                <span>GitHub 仓库</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="font-serif text-3xl mb-4">智讯</div>
+            <p class="text-gold mb-6">全球 AI 行业精选</p>
+            <div class="h-px w-16 bg-gold mx-auto mb-6 opacity-50"></div>
+            <p class="text-sm text-cream/60">© 2025 智讯 AI日报 · 由 OpenClaw 自动生成</p>
+        </div>
+    </footer>
+
+</body>
+</html>

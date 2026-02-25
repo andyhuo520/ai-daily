@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI DAILY | 人工智能日报 - 2025年2月25日</title>
+    <title>智讯 · AI日报 | 2025年2月25日</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'warm-cream': '#FAF6F0',
-                        'warm-beige': '#F5EFE6',
-                        'sand': '#E8DFD0',
+                        'cream': '#FAF7F2',
+                        'cream-dark': '#F5F0E8',
+                        'beige': '#E8E0D5',
+                        'beige-dark': '#D4C9B8',
                         'gold': '#C9A962',
-                        'gold-light': '#D4BA7A',
-                        'gold-dark': '#B8944F',
-                        'charcoal': '#2C2C2C',
-                        'charcoal-light': '#4A4A4A',
-                        'charcoal-soft': '#6B6B6B',
-                        'accent-copper': '#B87333',
+                        'gold-light': '#D4B978',
+                        'gold-dark': '#B8983F',
+                        'charcoal': '#2C2824',
+                        'charcoal-light': '#4A4540',
+                        'warm-gray': '#8B8680',
                     },
                     fontFamily: {
                         'serif': ['Playfair Display', 'Noto Serif SC', 'serif'],
-                        'display': ['Cormorant Garamond', 'Noto Serif SC', 'serif'],
                         'body': ['Inter', 'Noto Serif SC', 'sans-serif'],
                     }
                 }
@@ -36,959 +35,595 @@
     </script>
     <style>
         body {
-            background: linear-gradient(135deg, #FAF6F0 0%, #F5EFE6 100%);
+            background: linear-gradient(180deg, #FAF7F2 0%, #F5F0E8 100%);
+            font-family: 'Inter', 'Noto Serif SC', sans-serif;
         }
-        .gold-gradient {
-            background: linear-gradient(135deg, #C9A962 0%, #D4BA7A 50%, #B8944F 100%);
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #C9A962 0%, #D4B978 50%, #B8983F 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .gold-border {
-            border-image: linear-gradient(135deg, #C9A962, #D4BA7A, #B8944F) 1;
-        }
         .luxury-shadow {
-            box-shadow: 0 25px 50px -12px rgba(44, 44, 44, 0.15), 0 0 0 1px rgba(201, 169, 98, 0.1);
+            box-shadow: 0 20px 60px rgba(44, 40, 36, 0.08), 0 0 0 1px rgba(201, 169, 98, 0.1);
         }
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(44, 44, 44, 0.1);
-        }
-        .drop-cap::first-letter {
-            float: left;
-            font-size: 4.5rem;
-            line-height: 0.8;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            font-family: 'Playfair Display', serif;
-            color: #C9A962;
-            font-weight: 500;
-        }
-        .ornament {
-            position: relative;
-            text-align: center;
-        }
-        .ornament::before,
-        .ornament::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #C9A962, transparent);
-        }
-        .ornament::before { left: 0; }
-        .ornament::after { right: 0; }
         .card-hover {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
             transform: translateY(-4px);
-            box-shadow: 0 30px 60px -15px rgba(44, 44, 44, 0.2), 0 0 0 1px rgba(201, 169, 98, 0.2);
+            box-shadow: 0 30px 60px rgba(44, 40, 36, 0.12), 0 0 0 1px rgba(201, 169, 98, 0.2);
         }
         .reading-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #C9A962, #D4BA7A, #B8944F);
+            height: 3px;
+            background: linear-gradient(90deg, #C9A962, #D4B978, #B8983F);
             z-index: 1000;
             transition: width 0.1s ease;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
         }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        .section-divider {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.4), transparent);
+            background: #C9A962;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .original-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #C9A962;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            padding: 6px 12px;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+            border-radius: 4px;
+        }
+        .original-link:hover {
+            background: rgba(201, 169, 98, 0.1);
+            border-color: #C9A962;
+            gap: 10px;
+        }
+        .date-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #E8E0D5;
+            color: #2C2824;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+        .date-nav-btn:hover {
+            border-color: #C9A962;
+            background: #FAF7F2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 98, 0.15);
+        }
+        .archive-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: white;
+            border: 1px solid #E8E0D5;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: #2C2824;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+        .archive-item:hover {
+            border-color: #C9A962;
+            background: #FAF7F2;
+            transform: translateX(4px);
+        }
+        .archive-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #C9A962;
+        }
+        .archive-title {
+            font-size: 14px;
+            color: #8B8680;
         }
     </style>
 </head>
-<body class="font-body text-charcoal antialiased">
+<body class="text-charcoal antialiased">
     <!-- Reading Progress Bar -->
     <div class="reading-progress" id="reading-progress"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-warm-cream/95 backdrop-blur-md border-b border-gold/20 z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center space-x-3">
-                    <span class="iconify text-gold text-2xl" data-icon="phosphor:sparkle-duotone"></span>
-                    <span class="font-serif text-2xl font-semibold tracking-wider text-charcoal">AI DAILY</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#cover-story" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">封面故事</a>
-                    <a href="#news" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">行业新闻</a>
-                    <a href="#tools" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">工具推荐</a>
-                    <a href="#tutorials" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">教程资源</a>
-                    <a href="#deep-dives" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">深度长文</a>
-                    <a href="#openclaw" class="text-charcoal-soft hover:text-gold transition-colors text-sm tracking-wide">OpenClaw</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <span class="text-gold text-sm font-medium">2025年2月25日</span>
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-cream/95 backdrop-blur-md border-b border-gold/20 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Home Link -->
+                <a href="./index.html" class="flex items-center space-x-3 group">
+                    <span class="iconify text-gold text-2xl group-hover:scale-110 transition-transform" data-icon="phosphor:house-line"></span>
+                    <span class="font-serif text-xl font-semibold tracking-wider">智讯</span>
+                </a>
+                
+                <!-- Date Display -->
+                <div class="flex items-center space-x-2 px-4 py-2 bg-gold/10 rounded-full">
                     <span class="iconify text-gold" data-icon="phosphor:calendar-blank"></span>
+                    <span class="text-sm font-medium">2025年2月25日</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="flex items-center space-x-6">
+                    <a href="#archive" class="nav-link text-sm text-charcoal-light hover:text-gold">往期回顾</a>
+                    <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="flex items-center space-x-2 text-sm text-charcoal-light hover:text-gold transition-colors">
+                        <span class="iconify" data-icon="phosphor:github-logo"></span>
+                        <span class="hidden sm:inline">GitHub</span>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-gold/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <div class="mb-8 flex items-center justify-center space-x-4">
-                <div class="h-px w-16 bg-gradient-to-r from-transparent to-gold"></div>
-                <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">The Future Unfolds</span>
-                <div class="h-px w-16 bg-gradient-to-l from-transparent to-gold"></div>
-            </div>
-            
-            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl font-medium text-charcoal mb-6 leading-none">
-                <span class="gold-gradient italic">Intelligence</span>
-                <br>
-                <span class="text-charcoal">Daily</span>
-            </h1>
-            
-            <p class="font-display text-xl md:text-2xl text-charcoal-soft max-w-2xl mx-auto mb-12 leading-relaxed">
-                探索人工智能的无限可能，洞察科技前沿的每一个精彩瞬间
-            </p>
-            
-            <div class="flex items-center justify-center space-x-8 text-sm text-charcoal-soft">
-                <div class="flex items-center space-x-2">
-                    <span class="iconify text-gold" data-icon="phosphor:globe-hemisphere-west"></span>
-                    <span>全球视野</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <span class="iconify text-gold" data-icon="phosphor:trend-up"></span>
-                    <span>深度洞察</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <span class="iconify text-gold" data-icon="phosphor:lightning"></span>
-                    <span>前沿资讯</span>
-                </div>
-            </div>
-            
-            <div class="mt-16 animate-bounce">
-                <span class="iconify text-gold text-2xl" data-icon="phosphor:caret-down"></span>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
-        
-        <!-- Cover Story -->
-        <section id="cover-story" class="py-24">
-            <div class="grid lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-4">
-                    <div class="sticky top-32">
-                        <div class="flex items-center space-x-3 mb-6">
-                            <span class="iconify text-gold text-xl" data-icon="phosphor:star-duotone"></span>
-                            <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">Cover Story</span>
-                        </div>
-                        <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal leading-tight mb-6">
-                            印度AI市场的<br><span class="gold-gradient italic">黄金机遇</span>
-                        </h2>
-                        <p class="text-charcoal-soft leading-relaxed mb-8">
-                            当全球科技巨头将目光投向印度这片拥有14亿人口的土地，一场关于用户增长与商业变现的博弈正在悄然展开。
-                        </p>
-                        <div class="flex items-center space-x-4 text-sm text-charcoal-soft">
-                            <div class="flex items-center space-x-2">
-                                <span class="iconify" data-icon="phosphor:clock"></span>
-                                <span>15 分钟阅读</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="iconify" data-icon="phosphor:user"></span>
-                                <span>特约撰稿</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Date Navigation -->
+    <div class="fixed top-16 left-0 right-0 bg-cream/80 backdrop-blur-sm border-b border-beige z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="./ai-daily-2025-02-24.html" class="date-nav-btn opacity-50 cursor-not-allowed" onclick="return false;">
+                    <span class="iconify" data-icon="phosphor:caret-left"></span>
+                    <span>前一天</span>
+                </a>
+                
+                <div class="text-center">
+                    <div class="text-xs text-warm-gray uppercase tracking-widest mb-1">Today</div>
+                    <div class="font-serif text-2xl gold-gradient-text">2025.02.25</div>
                 </div>
                 
-                <div class="lg:col-span-8">
-                    <article class="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-12 luxury-shadow">
-                        <div class="prose prose-lg max-w-none">
-                            <p class="drop-cap text-charcoal-light leading-loose text-lg">
-                                在全球人工智能竞赛进入白热化阶段的2025年，印度市场正以其独特的方式重新定义这场游戏的规则。不同于硅谷追求的即时变现，印度的AI企业正在采用一种更为长远但同样充满雄心的策略——用当下的收入换取未来的用户基数。这一战略转型的背后，是这个拥有14亿人口的大国在数字化进程中展现出的惊人潜力，以及全球科技巨头对其市场价值重新评估的深刻洞察。
-                            </p>
-                            
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mt-12 mb-6">市场背景：全球目光的汇聚</h3>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                印度，这个世界上人口最多的民主国家，正在经历着一场前所未有的数字革命。根据印度电子和信息技术部的最新数据，该国的互联网用户数量已突破9亿，智能手机普及率持续攀升，而年轻一代对技术的接受度和适应性更是令全球瞩目。在这样的背景下，人工智能不再是一个遥远的概念，而是正在快速渗透到日常生活各个层面的实用工具。
-                            </p>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                ChatGPT及其竞争对手们在印度市场的布局，标志着全球AI竞赛进入了一个新的阶段。OpenAI、Google、Meta等科技巨头纷纷在印度设立研发中心、推出本土化产品，并投入巨资进行市场推广。然而，与欧美市场不同的是，印度的AI企业采取了一种更为激进但深思熟虑的策略——在短期内牺牲盈利能力，以换取庞大的用户基础和市场份额。
-                            </p>
-                            
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mt-12 mb-6">战略选择：短期牺牲，长期布局</h3>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                这种"以收入换用户"的策略并非印度市场的独创，但在当前AI竞争的语境下，它被赋予了新的含义。对于印度本土的AI初创企业而言，这既是生存的选择，也是发展的机遇。面对资金雄厚、技术领先的国际巨头，本地企业如果不能在起步阶段快速建立用户基础，很可能在竞争中被边缘化。因此，免费或低价策略成为了它们切入市场、培养用户习惯的重要手段。
-                            </p>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                然而，这种策略的风险同样不容忽视。持续的烧钱模式需要强大的资本支持，而印度的风险投资市场虽然在近年来蓬勃发展，但与硅谷相比仍显稚嫩。更重要的是，如何在积累用户之后实现有效的商业变现，是所有采用这一策略的企业必须面对的终极考验。广告、订阅、企业级服务——这些传统的变现模式在AI时代是否依然有效？针对印度市场特有的消费习惯和支付能力，又需要怎样的创新？
-                            </p>
-                            
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mt-12 mb-6">ChatGPT的实验：全球化战略的地方测试</h3>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                OpenAI在印度市场的动作，某种程度上可以被视为其全球化战略的一次重要实验。ChatGPT在印度推出免费版本的同时，也在小心翼翼地测试用户的付费意愿。这种渐进式的策略反映了OpenAI对印度市场复杂性的认知——一方面，印度用户的价格敏感度远高于欧美市场；另一方面，印度日益壮大的中产阶级和蓬勃发展的企业市场又展现出了可观的付费潜力。
-                            </p>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                对于OpenAI来说，印度市场的重要性不仅在于其庞大的用户基数，更在于其作为AI应用场景试验田的独特价值。印度的多语言环境、复杂的文化背景、以及相对较低的数字化成本，为AI产品的本土化提供了丰富的实践机会。从印地语、泰米尔语到孟加拉语，ChatGPT的多语言能力在印度的土壤中得到了锤炼和提升。
-                            </p>
-                            
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mt-12 mb-6">竞争格局：本土与国际的角力</h3>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                在印度AI市场的舞台上，竞争呈现出一种独特的多层次格局。国际巨头凭借技术和资本优势占据高端市场，而本土企业则依托对本地需求的深刻理解和灵活的运营策略在细分领域寻找突破口。这种竞争格局的形成，既是市场选择的结果，也是印度政府推动"数字印度"战略、鼓励本土创新的政策导向所致。
-                            </p>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                值得一提的是，印度本土的AI企业正在展现出令人瞩目的创新能力。从专注于农业智能化的Cropin，到致力于医疗AI的SigTuple，再到提供多语言AI解决方案的AI4Bharat，这些企业不仅在技术上不断突破，更在商业模式上探索着适合印度国情的道路。它们的存在，为印度AI市场增添了多元化的色彩，也为全球AI产业的发展提供了宝贵的经验。
-                            </p>
-                            
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mt-12 mb-6">未来展望：挑战与机遇并存</h3>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                站在2025年的时间节点回望，印度AI市场的发展轨迹既印证了许多人的预期，也带来了不少意外之喜。用户增长的迅猛态势超出了最乐观的预测，而商业变现的复杂性则比预期更为棘手。对于所有参与者而言，印度市场既是一个充满机遇的蓝海，也是一个需要长期投入和耐心的马拉松赛场。
-                            </p>
-                            <p class="text-charcoal-light leading-loose mb-6">
-                                展望未来，印度AI市场的走向将受到多重因素的影响。政府的监管政策、基础设施的完善程度、人才的培养速度、以及国际地缘政治的变化，都将对市场格局产生深远的影响。但可以肯定的是，在全球AI产业的版图上，印度已经从一个边缘角色成长为不可或缺的重要力量。
-                            </p>
-                            <p class="text-charcoal-light leading-loose">
-                                对于那些愿意投入时间、资源和智慧的企业来说，印度AI市场的黄金时代或许才刚刚开始。在这个人口红利与数字革命交汇的历史时刻，每一个参与者都有机会书写属于自己的篇章。而对于全球的观察者来说，印度市场的演变将继续提供关于AI普及、用户增长与商业可持续性之间平衡的深刻启示。
-                            </p>
+                <a href="#" class="date-nav-btn opacity-50 cursor-not-allowed" onclick="return false;">
+                    <span>后一天</span>
+                    <span class="iconify" data-icon="phosphor:caret-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <!-- Header -->
+            <header class="text-center mb-16">
+                <div class="inline-block mb-6">
+                    <span class="text-xs tracking-[0.4em] text-gold uppercase">AI Daily Report</span>
+                </div>
+                <h1 class="font-serif text-5xl md:text-6xl font-medium mb-6">
+                    <span class="gold-gradient-text italic">智讯</span>
+                </h1>
+                <p class="text-warm-gray text-lg">人工智能日报</p>
+                <div class="flex items-center justify-center mt-8 space-x-4">
+                    <div class="h-px w-20 bg-gradient-to-r from-transparent to-gold"></div>
+                    <span class="iconify text-gold" data-icon="phosphor:sparkle"></span>
+                    <div class="h-px w-20 bg-gradient-to-l from-transparent to-gold"></div>
+                </div>
+            </header>
+
+            <!-- Cover Story -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-6">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:star"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">封面故事</span>
+                </div>
+                
+                <article class="bg-cream-dark border border-beige p-8 md:p-12 relative">
+                    <div class="absolute top-4 left-4 right-4 bottom-4 border border-gold/30 pointer-events-none"></div>
+                    
+                    <h2 class="font-serif text-3xl md:text-4xl font-medium mb-6 leading-tight">
+                        印度AI市场的<span class="gold-gradient-text">黄金机遇</span>
+                    </h2>
+                    
+                    <div class="flex items-center space-x-4 text-sm text-warm-gray mb-6">
+                        <span class="flex items-center space-x-1">
+                            <span class="iconify" data-icon="phosphor:globe-hemisphere-west"></span>
+                            <span>全球市场</span>
+                        </span>
+                        <span>•</span>
+                        <span>15 分钟阅读</span>
+                    </div>
+                    
+                    <div class="prose prose-lg max-w-none text-charcoal-light leading-loose space-y-4">
+                        <p class="first-letter:text-5xl first-letter:font-serif first-letter:text-gold first-letter:float-left first-letter:mr-3 first-letter:mt-[-8px]">
+                            在全球人工智能竞赛进入白热化阶段的2025年，印度市场正以其独特的方式重新定义这场游戏的规则。不同于硅谷追求的即时变现，印度的AI企业正在采用一种更为长远但同样充满雄心的策略——用当下的收入换取未来的用户基数。
+                        </p>
+                        <p>
+                            这个拥有14亿人口、9亿互联网用户的庞大市场，正在成为全球科技巨头的战略要地。ChatGPT及其竞争对手们在印度市场的布局，标志着全球AI竞赛进入了一个新的阶段。
+                        </p>
+                        <p>
+                            OpenAI、Google、Meta等科技巨头纷纷在印度设立研发中心、推出本土化产品，并投入巨资进行市场推广。然而，与欧美市场不同的是，印度的AI企业采取了一种更为激进但深思熟虑的策略——在短期内牺牲盈利能力，以换取庞大的用户基础和市场份额。
+                        </p>
+                        <p>
+                            对于OpenAI来说，印度市场的重要性不仅在于其庞大的用户基数，更在于其作为AI应用场景试验田的独特价值。印度的多语言环境、复杂的文化背景、以及相对较低的数字化成本，为AI产品的本土化提供了丰富的实践机会。
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-beige">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-warm-gray">来源：TechCrunch / 综合分析</span>
+                            <a href="https://techcrunch.com/2026/02/24/india-ai-boom-pushes-firms-to-trade-near-term-revenue-for-users/" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Industry News -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:newspaper"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">行业动态</span>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- News 1 -->
+                    <article class="bg-white border border-beige p-6 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="text-xs text-gold font-medium tracking-wider uppercase bg-gold/10 px-3 py-1 rounded-full">硬件</span>
+                            <span class="iconify text-warm-gray" data-icon="phosphor:cpu"></span>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium mb-3">MatX融资5亿美元挑战英伟达AI芯片霸主地位</h3>
+                        <p class="text-charcoal-light text-sm leading-relaxed mb-4">
+                            由前Google TPU工程师创立的AI芯片初创公司MatX宣布完成5亿美元融资，这是2025年AI芯片领域最大的一笔融资之一。MatX专注于为大型语言模型和高性能计算场景设计专用芯片，其创始团队的核心成员曾深度参与Google TPU的研发工作。
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-beige/50">
+                            <span class="text-xs text-warm-gray">来源：TechCrunch</span>
+                            <a href="https://techcrunch.com/2026/02/24/nvidia-challenger-ai-chip-startup-matx-raised-500m/" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News 2 -->
+                    <article class="bg-white border border-beige p-6 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="text-xs text-gold font-medium tracking-wider uppercase bg-gold/10 px-3 py-1 rounded-full">开源</span>
+                            <span class="iconify text-warm-gray" data-icon="phosphor:git-merge"></span>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium mb-3">西班牙独角兽Multiverse发布HyperNova 60B免费压缩模型</h3>
+                        <p class="text-charcoal-light text-sm leading-relaxed mb-4">
+                            西班牙量子AI公司Multiverse Computing正式发布HyperNova 60B，这是一款采用先进压缩技术的开源大语言模型。该模型在保持600亿参数级别性能的同时，通过独特的算法优化将模型体积压缩了70%，显著降低了推理成本和部署门槛。
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-beige/50">
+                            <span class="text-xs text-warm-gray">来源：TechCrunch</span>
+                            <a href="https://techcrunch.com/2026/02/24/spanish-soonicorn-multiverse-computing-releases-free-compressed-ai-model/" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News 3 -->
+                    <article class="bg-white border border-beige p-6 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="text-xs text-gold font-medium tracking-wider uppercase bg-gold/10 px-3 py-1 rounded-full">企业</span>
+                            <span class="iconify text-warm-gray" data-icon="phosphor:buildings"></span>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium mb-3">Uber工程师为其CEO打造AI数字分身</h3>
+                        <p class="text-charcoal-light text-sm leading-relaxed mb-4">
+                            Uber内部工程团队开发了一款专为CEO Dara Khosrowshahi设计的AI助手系统，该系统能够通过学习其公开演讲、访谈和决策模式，模拟其思考方式和表达风格。这一案例引发了关于企业高管AI化分身伦理边界的广泛讨论。
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-beige/50">
+                            <span class="text-xs text-warm-gray">来源：TechCrunch</span>
+                            <a href="https://techcrunch.com/2026/02/24/uber-engineers-built-ai-version-of-boss-dara-khosrowshahi/" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News 4 -->
+                    <article class="bg-white border border-beige p-6 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="text-xs text-gold font-medium tracking-wider uppercase bg-gold/10 px-3 py-1 rounded-full">研究</span>
+                            <span class="iconify text-warm-gray" data-icon="phosphor:microscope"></span>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium mb-3">IBM与UC Berkeley揭示企业AI Agent失败原因</h3>
+                        <p class="text-charcoal-light text-sm leading-relaxed mb-4">
+                            IBM研究院与加州大学伯克利分校联合发布了IT-Bench和MAST两项研究成果，首次系统性地诊断了企业级AI Agent在实际部署中失败的根本原因。研究发现，超过65%的企业AI Agent项目未能达到预期目标。
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-beige/50">
+                            <span class="text-xs text-warm-gray">来源：Hugging Face</span>
+                            <a href="https://huggingface.co/blog/ibm-research/itbenchandmast" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News 5 -->
+                    <article class="bg-white border border-beige p-6 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="text-xs text-gold font-medium tracking-wider uppercase bg-gold/10 px-3 py-1 rounded-full">本地化</span>
+                            <span class="iconify text-warm-gray" data-icon="phosphor:monitor"></span>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium mb-3">H公司Holo2模型引领UI本地化技术突破</h3>
+                        <p class="text-charcoal-light text-sm leading-relaxed mb-4">
+                            神秘AI公司H Company发布了新一代Holo2模型，在UI本地化和跨平台界面适配领域取得重大突破。该模型能够自动识别和适配不同操作系统、屏幕尺寸和语言环境下的用户界面元素，将传统需要数周的人工本地化工作缩短至数小时。
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-beige/50">
+                            <span class="text-xs text-warm-gray">来源：Hugging Face</span>
+                            <a href="https://huggingface.co/blog/Hcompany/introducing-holo2-235b-a22b" target="_blank" class="original-link">
+                                <span>阅读原文</span>
+                                <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                            </a>
                         </div>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <div class="section-divider my-16"></div>
-
-        <!-- Industry News -->
-        <section id="news" class="py-16">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="iconify text-gold text-xl" data-icon="phosphor:newspaper-duotone"></span>
-                        <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">Industry News</span>
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal">行业动态</h2>
+            <!-- Tools -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:wrench"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">工具推荐</span>
                 </div>
-                <div class="hidden md:block">
-                    <span class="iconify text-gold/30 text-6xl" data-icon="phosphor:trend-up-duotone"></span>
-                </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- News 1 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-xl p-8 luxury-shadow card-hover group">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gold font-medium tracking-wider uppercase">Hardware</span>
-                        <span class="iconify text-charcoal-soft group-hover:text-gold transition-colors" data-icon="phosphor:cpu"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium text-charcoal mb-4 leading-snug">
-                        MatX融资5亿美元挑战英伟达AI芯片霸主地位
-                    </h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-6">
-                        由前Google TPU工程师创立的AI芯片初创公司MatX宣布完成5亿美元融资，这是2025年AI芯片领域最大的一笔融资之一。MatX专注于为大型语言模型和高性能计算场景设计专用芯片，其创始团队的核心成员曾深度参与Google TPU的研发工作，拥有丰富的AI加速器设计经验。此次融资将用于加速其首款产品的量产进程，并扩大研发团队规模。业内分析师认为，MatX的崛起标志着AI芯片市场竞争进入新阶段，英伟达在高端AI训练芯片市场的垄断地位将面临来自专业 challengers 的系统性挑战。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-4">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:clock"></span>
-                            <span>8 min</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:currency-dollar"></span>
-                            <span>$500M</span>
-                        </span>
-                    </div>
-                </article>
-
-                <!-- News 2 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-xl p-8 luxury-shadow card-hover group">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gold font-medium tracking-wider uppercase">Open Source</span>
-                        <span class="iconify text-charcoal-soft group-hover:text-gold transition-colors" data-icon="phosphor:git-merge"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium text-charcoal mb-4 leading-snug">
-                        西班牙独角兽Multiverse发布HyperNova 60B免费压缩模型
-                    </h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-6">
-                        西班牙量子AI公司Multiverse Computing正式发布HyperNova 60B，这是一款采用先进压缩技术的开源大语言模型。该模型在保持600亿参数级别性能的同时，通过独特的算法优化将模型体积压缩了70%，显著降低了推理成本和部署门槛。Multiverse Computing作为欧洲最受关注的AI独角兽候选企业之一，此次发布被视为其"AI民主化"战略的重要一步。HyperNova 60B特别针对多语言场景进行了优化，在欧洲主要语言上的表现优于同等规模的商业模型。该模型采用Apache 2.0开源协议，允许商业使用。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-4">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:clock"></span>
-                            <span>6 min</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:download-simple"></span>
-                            <span>免费</span>
-                        </span>
-                    </div>
-                </article>
-
-                <!-- News 3 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-xl p-8 luxury-shadow card-hover group">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gold font-medium tracking-wider uppercase">Enterprise</span>
-                        <span class="iconify text-charcoal-soft group-hover:text-gold transition-colors" data-icon="phosphor:buildings"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium text-charcoal mb-4 leading-snug">
-                        Uber工程师为其CEO打造AI数字分身
-                    </h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-6">
-                        Uber内部工程团队开发了一款专为CEO Dara Khosrowshahi设计的AI助手系统，该系统能够通过学习其公开演讲、访谈和决策模式，模拟其思考方式和表达风格。这一项目并非简单的语音克隆或形象复刻，而是一个集成了自然语言处理、知识图谱和决策建模的复杂系统。据称，该AI版本主要用于内部沟通场景，可以帮助高管团队更好地理解CEO的决策逻辑，并在紧急情况下提供基于其历史决策模式的建议。这一案例引发了关于企业高管AI化分身伦理边界的广泛讨论，同时也展示了AI在企业高层管理中的潜在应用场景。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-4">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:clock"></span>
-                            <span>7 min</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:warning-circle"></span>
-                            <span>伦理探讨</span>
-                        </span>
-                    </div>
-                </article>
-
-                <!-- News 4 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-xl p-8 luxury-shadow card-hover group">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gold font-medium tracking-wider uppercase">Research</span>
-                        <span class="iconify text-charcoal-soft group-hover:text-gold transition-colors" data-icon="phosphor:microscope"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium text-charcoal mb-4 leading-snug">
-                        IBM与UC Berkeley揭示企业AI Agent失败原因
-                    </h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-6">
-                        IBM研究院与加州大学伯克利分校联合发布了IT-Bench和MAST两项研究成果，首次系统性地诊断了企业级AI Agent在实际部署中失败的根本原因。研究发现，超过65%的企业AI Agent项目未能达到预期目标，主要问题集中在工具调用准确性、环境感知能力和错误恢复机制三个方面。IT-Bench基准测试涵盖了真实企业IT环境中的2000多个任务场景，而MAST框架则提供了一套系统化的诊断方法论。研究团队指出，当前大多数企业AI Agent在设计时过于关注语言理解能力，而忽视了与企业现有系统的深度集成需求。这一发现为下一代企业AI Agent的设计提供了重要指导。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-4">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:clock"></span>
-                            <span>9 min</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:chart-bar"></span>
-                            <span>研究报告</span>
-                        </span>
-                    </div>
-                </article>
-
-                <!-- News 5 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-xl p-8 luxury-shadow card-hover group">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gold font-medium tracking-wider uppercase">Localization</span>
-                        <span class="iconify text-charcoal-soft group-hover:text-gold transition-colors" data-icon="phosphor:monitor"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium text-charcoal mb-4 leading-snug">
-                        H公司Holo2模型引领UI本地化技术突破
-                    </h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-6">
-                        神秘AI公司H Company发布了新一代Holo2模型，在UI本地化和跨平台界面适配领域取得重大突破。该模型能够自动识别和适配不同操作系统、屏幕尺寸和语言环境下的用户界面元素，将传统需要数周的人工本地化工作缩短至数小时。Holo2采用了一种创新的视觉-语言联合理解架构，不仅能准确识别UI组件的功能语义，还能理解其在不同文化背景下的使用习惯差异。这一技术在移动应用开发、全球化软件产品和企业内部系统中具有广阔的应用前景。H Company表示将向开源社区贡献部分核心技术，推动UI自动化领域的整体发展。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-4">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:clock"></span>
-                            <span>5 min</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:devices"></span>
-                            <span>跨平台</span>
-                        </span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <div class="section-divider my-16"></div>
-
-        <!-- Tools Recommendation -->
-        <section id="tools" class="py-16">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="iconify text-gold text-xl" data-icon="phosphor:wrench-duotone"></span>
-                        <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">Tools & Resources</span>
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal">工具推荐</h2>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Tool 1 -->
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 luxury-shadow card-hover border border-gold/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                            <span class="iconify text-gold text-2xl" data-icon="phosphor:code"></span>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white border border-beige p-5 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold text-xl" data-icon="phosphor:code"></span>
+                            <h4 class="font-medium">Transformers.js v4</h4>
                         </div>
-                        <span class="text-xs text-gold font-medium px-2 py-1 bg-gold/10 rounded-full">New</span>
+                        <p class="text-sm text-charcoal-light mb-3">浏览器端机器学习库，支持WebGPU加速，现已登陆NPM</p>
+                        <a href="https://huggingface.co/blog/transformersjs-v4" target="_blank" class="original-link">
+                            <span>查看详情</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
                     </div>
-                    <h3 class="font-serif text-lg font-medium text-charcoal mb-2">Transformers.js v4</h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-4">
-                        Hugging Face推出的浏览器端机器学习库最新版本，现已登陆NPM。v4版本带来了显著的性能提升，支持更多模型架构，并优化了WebGPU加速。开发者现在可以在浏览器中直接运行先进的NLP、CV模型，无需后端服务器支持。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-3">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:star"></span>
-                            <span>JavaScript</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:browser"></span>
-                            <span>浏览器</span>
-                        </span>
-                    </div>
-                </div>
 
-                <!-- Tool 2 -->
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 luxury-shadow card-hover border border-gold/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                            <span class="iconify text-gold text-2xl" data-icon="phosphor:lightning"></span>
+                    <div class="bg-white border border-beige p-5 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold text-xl" data-icon="phosphor:lightning"></span>
+                            <h4 class="font-medium">Unsloth + HF Jobs</h4>
                         </div>
-                        <span class="text-xs text-gold font-medium px-2 py-1 bg-gold/10 rounded-full">高效</span>
+                        <p class="text-sm text-charcoal-light mb-3">免费模型训练方案，支持LoRA、QLoRA等高效微调技术</p>
+                        <a href="https://huggingface.co/blog/unsloth-jobs" target="_blank" class="original-link">
+                            <span>查看详情</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
                     </div>
-                    <h3 class="font-serif text-lg font-medium text-charcoal mb-2">Unsloth + HF Jobs</h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-4">
-                        Unsloth与Hugging Face Jobs联合推出的免费模型训练方案。通过内存优化技术和云端算力支持，开发者可以免费训练自己的AI模型。特别适合预算有限的研究者和初创团队，支持LoRA、QLoRA等高效微调技术。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-3">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:student"></span>
-                            <span>训练</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:crown-simple"></span>
-                            <span>免费</span>
-                        </span>
-                    </div>
-                </div>
 
-                <!-- Tool 3 -->
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 luxury-shadow card-hover border border-gold/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                            <span class="iconify text-gold text-2xl" data-icon="phosphor:layout"></span>
+                    <div class="bg-white border border-beige p-5 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold text-xl" data-icon="phosphor:layout"></span>
+                            <h4 class="font-medium">Gradio gr.HTML</h4>
                         </div>
-                        <span class="text-xs text-gold font-medium px-2 py-1 bg-gold/10 rounded-full">实用</span>
+                        <p class="text-sm text-charcoal-light mb-3">一键生成Web应用界面，快速部署交互式AI应用</p>
+                        <a href="https://huggingface.co/blog/gradio-html-one-shot-apps" target="_blank" class="original-link">
+                            <span>查看详情</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
                     </div>
-                    <h3 class="font-serif text-lg font-medium text-charcoal mb-2">Gradio gr.HTML</h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-4">
-                        Gradio框架新增的强大功能，允许开发者通过单次代码编写快速生成复杂的Web应用界面。结合AI模型，可以实现一键部署交互式应用。特别适合快速原型验证和Demo展示，大幅降低了AI应用的前端开发门槛。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-3">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:paint-brush"></span>
-                            <span>UI</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:rocket-launch"></span>
-                            <span>快速部署</span>
-                        </span>
-                    </div>
-                </div>
 
-                <!-- Tool 4 -->
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 luxury-shadow card-hover border border-gold/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                            <span class="iconify text-gold text-2xl" data-icon="phosphor:terminal"></span>
+                    <div class="bg-white border border-beige p-5 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold text-xl" data-icon="phosphor:terminal"></span>
+                            <h4 class="font-medium">Codex & Claude Kernels</h4>
                         </div>
-                        <span class="text-xs text-gold font-medium px-2 py-1 bg-gold/10 rounded-full">内核</span>
+                        <p class="text-sm text-charcoal-light mb-3">AI生成优化CUDA内核，改变高性能计算工作方式</p>
+                        <a href="https://huggingface.co/blog/custom-cuda-kernels-agent-skills" target="_blank" class="original-link">
+                            <span>查看详情</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
                     </div>
-                    <h3 class="font-serif text-lg font-medium text-charcoal mb-2">Codex & Claude Kernels</h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-4">
-                        OpenAI Codex与Anthropic Claude联合推出的自定义内核生成工具。开发者可以用自然语言描述计算需求，AI自动生成优化的CUDA/OpenCL内核代码。这项技术正在改变高性能计算和深度学习优化的工作方式。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-3">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:cpu"></span>
-                            <span>CUDA</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:flame"></span>
-                            <span>性能优化</span>
-                        </span>
-                    </div>
-                </div>
 
-                <!-- Tool 5 -->
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 luxury-shadow card-hover border border-gold/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                            <span class="iconify text-gold text-2xl" data-icon="phosphor:eye"></span>
+                    <div class="bg-white border border-beige p-5 card-hover md:col-span-2">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="iconify text-gold text-xl" data-icon="phosphor:eye"></span>
+                            <h4 class="font-medium">Jetson VLM部署套件</h4>
                         </div>
-                        <span class="text-xs text-gold font-medium px-2 py-1 bg-gold/10 rounded-full">边缘AI</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-medium text-charcoal mb-2">Jetson VLM部署套件</h3>
-                    <p class="text-charcoal-soft text-sm leading-relaxed mb-4">
-                        专为NVIDIA Jetson边缘计算设备优化的视觉语言模型部署方案。支持在资源受限的嵌入式设备上运行先进的VLM模型，适用于机器人、智能监控、工业检测等场景。包含模型量化、推理优化和完整的开发工具链。
-                    </p>
-                    <div class="flex items-center text-xs text-charcoal-soft space-x-3">
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:camera"></span>
-                            <span>视觉</span>
-                        </span>
-                        <span class="flex items-center space-x-1">
-                            <span class="iconify" data-icon="phosphor:hard-drives"></span>
-                            <span>边缘计算</span>
-                        </span>
+                        <p class="text-sm text-charcoal-light mb-3">专为NVIDIA Jetson边缘计算设备优化的视觉语言模型部署方案</p>
+                        <a href="https://huggingface.co/blog/nvidia/cosmos-on-jetson" target="_blank" class="original-link">
+                            <span>查看详情</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <div class="section-divider my-16"></div>
-
-        <!-- Tutorials -->
-        <section id="tutorials" class="py-16">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="iconify text-gold text-xl" data-icon="phosphor:book-open-duotone"></span>
-                        <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">Tutorials</span>
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal">教程资源</h2>
+            <!-- Tutorials -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:book-open"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">教程资源</span>
                 </div>
-            </div>
 
-            <div class="space-y-8">
-                <!-- Tutorial 1 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 luxury-shadow">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                                <span class="iconify text-gold text-3xl" data-icon="phosphor:robot"></span>
+                <div class="space-y-4">
+                    <article class="bg-cream-dark border border-beige p-6">
+                        <div class="flex items-start space-x-4">
+                            <span class="iconify text-gold text-2xl flex-shrink-0" data-icon="phosphor:robot"></span>
+                            <div class="flex-1">
+                                <h4 class="font-serif text-lg font-medium mb-2">OpenEnv实战：真实环境中评估工具使用型AI Agent</h4>
+                                <p class="text-sm text-charcoal-light mb-3">作为一个开源的Agent评估框架，OpenEnv致力于构建贴近真实应用场景的测试环境，涵盖从网页交互、代码执行到API调用等多种工具使用场景。</p>
+                                <a href="https://huggingface.co/blog/openenv-turing" target="_blank" class="original-link">
+                                    <span>阅读完整教程</span>
+                                    <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <span class="text-xs text-gold font-medium tracking-wider uppercase">实践指南</span>
-                                <span class="text-charcoal-soft text-xs">•</span>
-                                <span class="text-charcoal-soft text-xs">12 分钟阅读</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mb-4">OpenEnv实战：在真实环境中评估工具使用型AI Agent</h3>
-                            <div class="prose prose-sm max-w-none text-charcoal-light leading-relaxed">
-                                <p class="mb-4">
-                                    随着大型语言模型能力的不断增强，工具使用型AI Agent正在从实验室走向现实应用。然而，如何准确评估这些Agent在真实环境中的表现，一直是学术界和工业界共同面临的挑战。传统的基准测试往往过于简化，无法反映真实世界的复杂性；而人工评估又成本高昂、难以规模化。
-                                </p>
-                                <p class="mb-4">
-                                    OpenEnv项目的出现为这一难题提供了系统性的解决方案。作为一个开源的Agent评估框架，OpenEnv致力于构建贴近真实应用场景的测试环境，涵盖从网页交互、代码执行到API调用等多种工具使用场景。与传统的静态测试集不同，OpenEnv采用动态环境模拟，Agent的每一个动作都会实时改变环境状态，从而更准确地反映实际部署时的表现。
-                                </p>
-                                <p class="mb-4">
-                                    在使用OpenEnv进行Agent评估时，首先需要明确评估目标。是希望测试Agent的代码生成能力？还是其在复杂网页环境中的信息检索能力？抑或是多步骤任务规划与执行能力？不同的评估目标对应不同的环境配置和任务设计。OpenEnv提供了模块化的环境构建工具，开发者可以根据需求组合不同的工具集和环境参数。
-                                </p>
-                                <p class="mb-4">
-                                    以网页自动化任务为例，OpenEnv集成了基于浏览器的沙箱环境，可以模拟用户在真实网站上的操作流程。评估者可以定义目标（如在电商网站完成一笔订单），然后观察Agent如何分解任务、规划步骤、处理异常情况。OpenEnv会详细记录Agent的每一步操作、耗时、成功率以及错误类型，生成全面的评估报告。
-                                </p>
-                                <p>
-                                    对于希望将OpenEnv集成到持续集成流程中的团队，项目提供了完整的API和CLI工具。可以在代码提交时自动运行Agent测试套件，及时发现回归问题。此外，OpenEnv还支持多人协作的评估模式，允许多个评估者对同一Agent进行独立评估，然后汇总分析结果，提高评估的客观性和可靠性。通过系统性地使用OpenEnv，开发者可以建立起Agent能力的量化基线，为持续改进提供数据支撑。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Tutorial 2 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 luxury-shadow">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                                <span class="iconify text-gold text-3xl" data-icon="phosphor:device-mobile-camera"></span>
+                    <article class="bg-cream-dark border border-beige p-6">
+                        <div class="flex items-start space-x-4">
+                            <span class="iconify text-gold text-2xl flex-shrink-0" data-icon="phosphor:device-mobile-camera"></span>
+                            <div class="flex-1">
+                                <h4 class="font-serif text-lg font-medium mb-2">Jetson平台部署开源VLM完整指南</h4>
+                                <p class="text-sm text-charcoal-light mb-3">详细介绍如何在Jetson Orin Nano或Orin NX平台上部署和优化开源VLM模型，包括环境准备、模型选择、量化优化和性能调优的完整流程。</p>
+                                <a href="https://huggingface.co/blog/nvidia/cosmos-on-jetson" target="_blank" class="original-link">
+                                    <span>阅读完整教程</span>
+                                    <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <span class="text-xs text-gold font-medium tracking-wider uppercase">部署教程</span>
-                                <span class="text-charcoal-soft text-xs">•</span>
-                                <span class="text-charcoal-soft text-xs">15 分钟阅读</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mb-4">在Jetson平台部署开源视觉语言模型完整指南</h3>
-                            <div class="prose prose-sm max-w-none text-charcoal-light leading-relaxed">
-                                <p class="mb-4">
-                                    视觉语言模型（VLM）代表了多模态AI的重要进展，能够同时理解图像内容和自然语言指令，为机器人、智能监控、辅助驾驶等边缘应用场景带来了新的可能性。然而，这类模型通常参数庞大，对计算资源要求较高，如何在资源受限的嵌入式设备上高效部署VLM，是工程实践中的一大挑战。
-                                </p>
-                                <p class="mb-4">
-                                    NVIDIA Jetson系列作为边缘AI计算的主流平台，凭借其强大的GPU算力和完善的软件生态，成为部署VLM的理想选择。本教程将详细介绍如何在Jetson Orin Nano或Orin NX平台上部署和优化开源VLM模型，包括环境准备、模型选择、量化优化和性能调优的完整流程。
-                                </p>
-                                <p class="mb-4">
-                                    首先需要准备Jetson开发环境。确保设备运行最新版本的JetPack SDK，其中包含了CUDA、cuDNN、TensorRT等必要的加速库。建议使用JetPack 6.0或更高版本，以获得对新型VLM架构的最佳支持。系统准备就绪后，需要安装Hugging Face的transformers库和相关的视觉处理依赖。
-                                </p>
-                                <p class="mb-4">
-                                    模型选择是部署成功的关键。考虑到Jetson的内存限制（通常为8GB或16GB），建议选用经过优化的轻量级VLM，如LLaVA-Phi、TinyLLaVA或专门面向边缘设备设计的Moondream。这些模型在保持较好性能的同时，大幅降低了对显存的需求。对于内存更大的Jetson AGX Orin，可以尝试部署更强大的模型如Qwen-VL或InternVL。
-                                </p>
-                                <p class="mb-4">
-                                    量化优化是提升推理性能的核心步骤。使用TensorRT对模型进行INT8量化，可以在精度损失可控的情况下，将推理速度提升3-5倍。此外，启用Flash Attention、使用KV Cache优化等技术也能显著改善延迟表现。对于视频流处理场景，建议实现批处理机制，充分利用GPU的并行计算能力。
-                                </p>
-                                <p>
-                                    最后，针对具体应用场景进行定制化优化。如果是机器人视觉导航任务，可以裁剪模型以专注于空间理解；如果是文档理解场景，可以优化OCR与VLM的协同工作流。通过系统性的优化，Jetson平台上的VLM部署完全可以满足实时应用的需求，为边缘AI应用的开发提供强大支持。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Tutorial 3 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 luxury-shadow">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
-                                <span class="iconify text-gold text-3xl" data-icon="phosphor:globe"></span>
+                    <article class="bg-cream-dark border border-beige p-6">
+                        <div class="flex items-start space-x-4">
+                            <span class="iconify text-gold text-2xl flex-shrink-0" data-icon="phosphor:globe"></span>
+                            <div class="flex-1">
+                                <h4 class="font-serif text-lg font-medium mb-2">全球开源AI生态系统未来展望</h4>
+                                <p class="text-sm text-charcoal-light mb-3">从DeepSeek到AI+时代，开源AI的崛起正在催生日益民主化的"AI+"时代，中小企业甚至个人开发者也能基于顶尖的开源模型构建自己的AI应用。</p>
+                                <a href="https://huggingface.co/blog/huggingface/one-year-since-the-deepseek-moment-blog-3" target="_blank" class="original-link">
+                                    <span>阅读完整教程</span>
+                                    <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <span class="text-xs text-gold font-medium tracking-wider uppercase">趋势分析</span>
-                                <span class="text-charcoal-soft text-xs">•</span>
-                                <span class="text-charcoal-soft text-xs">18 分钟阅读</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-medium text-charcoal mb-4">全球开源AI生态系统未来展望：从DeepSeek到AI+时代</h3>
-                            <div class="prose prose-sm max-w-none text-charcoal-light leading-relaxed">
-                                <p class="mb-4">
-                                    2024年至2025年，全球开源AI生态系统经历了前所未有的变革。以DeepSeek为代表的新一代开源模型在性能上逼近甚至超越部分闭源商业模型，引发了关于AI发展范式的深刻讨论。这场开源浪潮不仅改变了技术的传播方式，更在重塑整个AI产业的竞争格局和价值创造模式。
-                                </p>
-                                <p class="mb-4">
-                                    DeepSeek系列模型的成功发布，标志着开源AI进入了一个新的发展阶段。这些模型采用创新的架构设计和训练方法，在代码理解、数学推理和长文本处理等关键能力上取得了突破。更重要的是，DeepSeek选择以完全开源的方式发布，包括模型权重、训练代码和技术报告，为全球研究者和开发者提供了宝贵的学习资源和创新基础。
-                                </p>
-                                <p class="mb-4">
-                                    开源AI的崛起正在催生"AI+"时代的到来。与之前的"互联网+"类似，AI+代表着人工智能技术向各行各业深度融合的新阶段。但不同的是，开源AI使得这种融合更加民主化——中小企业甚至个人开发者也能基于顶尖的开源模型构建自己的AI应用，而不必依赖昂贵的API调用或受制于闭源平台的服务条款。
-                                </p>
-                                <p class="mb-4">
-                                    对于希望参与这一浪潮的开发者，首先需要建立对开源AI生态系统的整体认知。Hugging Face作为开源AI的枢纽平台，汇聚了数以百万计的模型、数据集和工具。了解如何有效地使用Hugging Face Hub进行模型检索、微调和部署，是进入开源AI世界的基础技能。同时，关注顶级开源项目如llama.cpp、vLLM、Ollama等的进展，能够帮助开发者掌握最新的推理优化技术。
-                                </p>
-                                <p class="mb-4">
-                                    参与开源社区贡献是提升AI能力的有效途径。无论是提交代码改进、报告问题、分享使用经验，还是创建新的模型或工具，每一次贡献都是与全球顶尖人才学习和交流的机会。许多开源AI项目的核心贡献者来自世界各地的高校、研究机构和科技公司，加入这些项目意味着接入一个高质量的技术网络。
-                                </p>
-                                <p>
-                                    展望未来，开源AI生态系统将继续快速发展。多模态模型、Agent系统、具身智能等前沿方向都将涌现更多开源成果。同时，关于开源AI的治理、安全、伦理等议题也将得到更多关注。对于AI从业者而言，保持对开源社区的关注、积极参与其中、并为社区做出贡献，将是把握AI时代机遇的关键策略。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <div class="section-divider my-16"></div>
-
-        <!-- Deep Dives -->
-        <section id="deep-dives" class="py-16">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="iconify text-gold text-xl" data-icon="phosphor:article-duotone"></span>
-                        <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">Deep Dives</span>
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal">深度长文</h2>
+                    </article>
                 </div>
-            </div>
+            </section>
 
-            <div class="space-y-12">
-                <!-- Deep Dive 1 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden luxury-shadow">
-                    <div class="p-8 md:p-12">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <span class="text-xs text-gold font-medium tracking-wider uppercase">技术深度</span>
-                            <span class="text-charcoal-soft text-xs">•</span>
-                            <span class="text-charcoal-soft text-xs">20 分钟阅读</span>
-                        </div>
-                        <h3 class="font-serif text-3xl font-medium text-charcoal mb-6">GGML与llama.cpp加入Hugging Face：本地AI时代的里程碑</h3>
-                        
-                        <div class="prose prose-base max-w-none text-charcoal-light leading-relaxed">
-                            <p class="mb-6">
-                                2025年初，AI开源社区迎来了一个具有历史意义的时刻：GGML项目及其最著名的实现llama.cpp正式加入Hugging Face组织。这一事件不仅标志着两个最具影响力的本地AI推理项目的资源整合，更象征着本地AI（Local AI）运动从边缘走向主流的转折点。
-                            </p>
-                            <p class="mb-6">
-                                GGML的诞生源于开发者Georgi Gerganov对高效本地AI推理的追求。在大型语言模型主要由云端API提供服务的时代，GGML选择了一条不同的道路——让普通消费者设备也能运行先进的AI模型。通过创新的量化技术、针对CPU优化的计算内核和最小化的依赖设计，GGML将原本需要数据中心级GPU才能运行的模型带到了笔记本电脑甚至移动设备上。
-                            </p>
-                            <p class="mb-6">
-                                llama.cpp作为GGML最著名的应用实现，在Meta发布LLaMA模型后迅速成为本地AI的代名词。它不仅提供了简单易用的命令行工具，还衍生出了丰富的生态系统，包括支持多种编程语言的绑定、图形界面客户端、以及与其他开源项目的集成。更重要的是，llama.cpp证明了本地AI不仅仅是技术爱好者的玩具，而是具有实际应用价值的可行方案。
-                            </p>
-                            <p class="mb-6">
-                                Hugging Face在AI开源生态中的地位无需赘述。作为模型、数据集和工具的首要集散地，Hugging Face连接了全球数百万AI开发者和研究者。GGML和llama.cpp的加入，填补了Hugging Face生态在本地推理领域的关键空白。在此之前，虽然Hugging Face Hub上已经托管了大量量化模型，但缺乏统一的、高质量的推理引擎来支持这些模型在本地的高效运行。
-                            </p>
-                            <p class="mb-6">
-                                从技术的角度看，这次整合带来了多方面的协同效应。首先，Hugging Face的模型库可以与llama.cpp的推理引擎无缝集成，开发者可以直接从Hub下载并运行量化模型，无需手动处理复杂的格式转换。其次，Hugging Face的模型卡片系统和社区评价机制可以帮助用户更好地选择适合本地部署的模型。最重要的是，统一的生态系统将加速本地AI工具和应用的开发，降低开发者的门槛。
-                            </p>
-                            <p class="mb-6">
-                                对于本地AI的未来发展，这次合并具有深远的战略意义。随着隐私保护和数据主权意识的增强，越来越多的用户和企业开始关注数据不上云的AI解决方案。医疗、金融、法律等对数据安全高度敏感的行业，对本地AI的需求尤为迫切。GGML和llama.cpp加入Hugging Face后，这些行业可以更便利地获取和部署符合合规要求的AI能力。
-                            </p>
-                            <p class="mb-6">
-                                此外，本地AI的兴起也在推动模型架构和训练方法的创新。既然模型需要在消费者设备上运行，那么模型效率就成为一个核心的设计考量。这催生了大量针对边缘优化的模型架构，如MobileLLaMA、TinyLlama、Phi系列等。这些模型虽然在参数量上远小于GPT-4或Claude，但在特定任务上的表现却毫不逊色，而且完全可以在本地运行。
-                            </p>
-                            <p>
-                                展望未来，本地AI生态系统将继续快速发展。Apple Silicon、高通骁龙等ARM架构芯片的AI能力不断增强，为本地AI提供了更强大的硬件基础。同时，WebGPU等浏览器端加速技术的成熟，使得在网页应用中运行本地AI成为可能。GGML和llama.cpp与Hugging Face的整合，正是顺应了这一大趋势，为本地AI的长期发展奠定了坚实的基础。对于每一个关注AI技术的人来说，本地AI时代的全面到来，或许比我们想象的更近。
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Deep Dive 2 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden luxury-shadow">
-                    <div class="p-8 md:p-12">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <span class="text-xs text-gold font-medium tracking-wider uppercase">产业观察</span>
-                            <span class="text-charcoal-soft text-xs">•</span>
-                            <span class="text-charcoal-soft text-xs">22 分钟阅读</span>
-                        </div>
-                        <h3 class="font-serif text-3xl font-medium text-charcoal mb-6">AI芯片新格局：后英伟达时代的竞争版图重塑</h3>
-                        
-                        <div class="prose prose-base max-w-none text-charcoal-light leading-relaxed">
-                            <p class="mb-6">
-                                在人工智能席卷全球的浪潮中，计算芯片作为这一革命的基础设施，其战略地位从未如此重要。英伟达凭借GPU架构的先发优势，在AI训练芯片市场建立了近乎垄断的地位，市值一度突破两万亿美元。然而，技术领域的垄断从来都不是永恒的。随着AI工作负载的多样化、推理需求的增长，以及地缘政治因素的影响，AI芯片市场正在迎来一场深刻的新格局重塑。
-                            </p>
-                            <p class="mb-6">
-                                MatX的崛起是这一变革的典型案例。这家由前Google TPU核心工程师创立的公司，在完成5亿美元融资后，已成为最受关注的AI芯片独角兽之一。其创始团队的技术背景赋予了MatX独特的基因——他们既深谙AI工作负载的特性，又具备设计专用加速器的第一手经验。与英伟达通用GPU的路线不同，MatX选择了专用架构的路径，针对大型语言模型和推荐系统等特定场景进行深度优化。
-                            </p>
-                            <p class="mb-6">
-                                MatX的技术路线代表了AI芯片发展的一个重要方向。随着Transformer架构的主导地位确立，以及模型规模的可预测扩展规律（scaling laws）被广泛接受，设计专门针对这些特性的芯片成为可能。专用芯片（ASIC）相比通用GPU，在能效比和成本方面具有潜在优势。虽然在灵活性上有所牺牲，但对于超大规模的数据中心而言，这种权衡往往是值得的。
-                            </p>
-                            <p class="mb-6">
-                                除了MatX这样的初创企业，传统芯片巨头也在加速布局AI领域。AMD通过MI300系列芯片向数据中心市场发起冲击，Intel则在Gaudi系列和Falcon Shores架构上投入巨资。这些公司的优势在于成熟的供应链、广泛的客户关系和完整的软件生态。它们的目标不是完全取代英伟达，而是在特定细分市场建立立足点，然后逐步扩大份额。
-                            </p>
-                            <p class="mb-6">
-                                科技巨头的自研芯片是另一股不可忽视的力量。Google的TPU、Amazon的Trainium和Inferentia、Microsoft的Maia，这些云厂商自研芯片的初衷是降低对英伟达的依赖，同时针对自身工作负载进行优化。随着这些芯片的迭代成熟，它们开始对外提供服务，成为AI芯片市场的新变量。对于云厂商的客户而言，这意味着更多的选择和潜在的降本机会。
-                            </p>
-                            <p class="mb-6">
-                                从应用场景的角度看，AI芯片市场正在发生结构性变化。训练市场虽然增长迅速，但推理市场的规模正在快速追赶，甚至在某些预测中将在未来几年超越训练市场。推理场景对芯片的要求与训练不同——更关注延迟、能效和成本，而非单纯的峰值算力。这为新的芯片架构提供了切入点，也是边缘AI芯片蓬勃发展的驱动力。
-                            </p>
-                            <p class="mb-6">
-                                地缘政治因素正在深刻影响AI芯片产业的格局。美国对中国实施的先进芯片出口管制，一方面限制了英伟达等美国企业在华业务，另一方面也刺激了中国本土AI芯片产业的发展。华为的昇腾、寒武纪的思元、海光的DCU等产品，在国内市场获得了前所未有的发展机会。虽然与国际顶尖水平仍有差距，但正在快速追赶。
-                            </p>
-                            <p class="mb-6">
-                                对于中国AI芯片产业而言，当前的挑战与机遇并存。制造工艺的限制使得先进制程芯片的生产面临困难，但通过Chiplet等先进封装技术和架构创新，仍有提升空间。更重要的是，庞大的国内市场需求为本土芯片企业提供了宝贵的迭代机会。在自动驾驶、智能安防、大模型训练等场景中，国产AI芯片正在获得越来越多的采用。
-                            </p>
-                            <p class="mb-6">
-                                软件生态是决定AI芯片成败的关键因素之一，这也是英伟达最核心的护城河。CUDA平台历经十余年积累，已经成为事实上的行业标准。挑战者要想成功，必须在软件兼容性上做出妥协，同时提供足够的性能或成本优势来吸引开发者迁移。开源软件如PyTorch、JAX的发展，以及Triton等新兴编程框架的出现，为打破CUDA垄断提供了可能。
-                            </p>
-                            <p>
-                                展望未来，AI芯片市场将呈现多极化的竞争格局。英伟达仍将保持领先地位，但市场份额可能会被逐步侵蚀。专用芯片将在特定场景建立优势，而通用GPU则继续服务于需要灵活性的应用。对于用户而言，这意味着更多的选择和更好的性价比。对于整个AI产业而言，健康的竞争将加速技术创新和成本下降，推动AI技术的更广泛应用。MatX们的崛起，正是这一历史进程的开端。
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Deep Dive 3 -->
-                <article class="bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden luxury-shadow">
-                    <div class="p-8 md:p-12">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <span class="text-xs text-gold font-medium tracking-wider uppercase">应用前沿</span>
-                            <span class="text-charcoal-soft text-xs">•</span>
-                            <span class="text-charcoal-soft text-xs">18 分钟阅读</span>
-                        </div>
-                        <h3 class="font-serif text-3xl font-medium text-charcoal mb-6">企业级AI Agent的困境与突破：从IBM-伯克利研究看未来方向</h3>
-                        
-                        <div class="prose prose-base max-w-none text-charcoal-light leading-relaxed">
-                            <p class="mb-6">
-                                企业级AI Agent被寄予厚望——它们被期待能够像人类员工一样处理复杂任务，从客户服务到数据分析，从代码开发到流程自动化。科技巨头们投入巨资研发，初创公司如雨后春笋般涌现，媒体上充斥着AI Agent即将改变企业运营方式的预言。然而，现实往往比理想骨感。IBM研究院与加州大学伯克利分校的联合研究，首次系统性地揭示了企业级AI Agent面临的深层困境，同时也为未来的突破指明了方向。
-                            </p>
-                            <p class="mb-6">
-                                IT-Bench基准测试是该研究的核心贡献之一。与以往过于简化的Agent测试集不同，IT-Bench基于真实的企业IT环境构建，涵盖了从故障排查、安全响应到资源管理等2000多个实际任务场景。这些任务不是孤立的问题解答，而是需要Agent在复杂的企业系统环境中进行多步骤操作，涉及日志分析、命令执行、API调用等多种工具的协调使用。测试结果令人警醒：超过65%的企业AI Agent项目未能达到生产部署的要求。
-                            </p>
-                            <p class="mb-6">
-                                MAST诊断框架进一步分析了这些失败背后的根本原因。研究发现，企业AI Agent的主要短板集中在三个维度：工具调用的准确性、环境感知能力和错误恢复机制。在工具调用方面，Agent常常无法正确选择或参数化所需的工具，或者在工具调用失败后无法有效诊断问题。在环境感知方面，Agent往往缺乏对企业系统状态的准确理解，导致基于过时或错误信息做出决策。在错误恢复方面，当任务执行偏离预期时，Agent很少能够自主调整策略，而是陷入重复错误的循环。
-                            </p>
-                            <p class="mb-6">
-                                这些发现揭示了一个根本性问题：当前大多数企业AI Agent的设计理念存在偏差。开发者过于关注提升Agent的语言理解和生成能力，而忽视了与企业现有系统的深度集成需求。一个能够流畅对话的Agent，如果无法准确操作企业内部的工单系统、监控平台或代码仓库，其实用价值就大打折扣。企业级应用需要的是可靠性和确定性，而当前大模型的概率性本质与此存在一定张力。
-                            </p>
-                            <p class="mb-6">
-                                从架构设计的角度看，成功的企业AI Agent需要重新思考人机协作的边界。完全自主的Agent在当前技术水平下风险过高，更务实的做法是设计人机协作的混合系统，让Agent处理明确的、可验证的子任务，而将需要判断和决策的环节留给人类。这种设计不仅提高了系统的可靠性，也让企业更容易接受和部署AI Agent——员工可以在监督下逐步建立对系统的信任。
-                            </p>
-                            <p class="mb-6">
-                                工具使用能力的提升是突破的关键。研究建议，企业AI Agent应当采用更结构化的工具定义方式，包括详细的输入验证规则、执行结果模式和错误处理规范。同时，Agent需要具备工具组合使用的能力——复杂的企业任务往往需要多个工具的协调配合，而不是单一工具的一次调用。这要求Agent具备一定程度的规划能力，能够将高层目标分解为可执行的步骤序列。
-                            </p>
-                            <p class="mb-6">
-                                环境感知能力的增强是另一个重要方向。企业AI Agent需要能够实时获取和理解其所处环境的上下文信息，包括系统状态、历史操作记录、组织知识库等。这不仅是简单的信息检索，而是需要对信息进行整合和推理，形成对当前任务情境的全面理解。知识图谱、向量数据库等技术的引入，可以显著增强Agent的环境感知能力。
-                            </p>
-                            <p class="mb-6">
-                                错误处理和恢复机制的设计同样至关重要。企业环境的不确定性意味着Agent在执行过程中不可避免地会遇到各种意外情况。一个健壮的Agent系统应当具备多层次的错误处理能力：在工具调用层面进行参数验证和重试，在任务执行层面进行策略调整，在整体流程层面进行降级处理和人工接管提示。这种分层的设计哲学可以大大提高系统的容错性。
-                            </p>
-                            <p>
-                                展望未来，企业级AI Agent的发展将进入一个更加务实的新阶段。经过初期的热潮和试错，业界对AI Agent的能力和局限有了更清醒的认识。成功的Agent产品将不再是追求完全自主的"数字员工"，而是成为增强人类能力的智能助手，在明确的边界内提供可靠的价值。IBM和伯克利的研究为这一转型提供了宝贵的理论指导和实践工具，推动企业AI Agent从概念走向真正有价值的生产应用。对于那些正在探索Agent技术的企业而言，这份研究无疑是必读的参考资料。
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <div class="section-divider my-16"></div>
-
-        <!-- OpenClaw Ecosystem -->
-        <section id="openclaw" class="py-16">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="iconify text-gold text-xl" data-icon="phosphor:claw-duotone"></span>
-                        <span class="text-gold text-xs tracking-[0.3em] uppercase font-medium">OpenClaw Ecosystem</span>
-                    </div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-charcoal">OpenClaw 生态</h2>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- OpenClaw Item 1 -->
-                <div class="bg-gradient-to-br from-charcoal to-charcoal-light rounded-2xl p-8 text-white luxury-shadow card-hover">
-                    <div class="w-14 h-14 rounded-xl bg-gold/20 flex items-center justify-center mb-6">
-                        <span class="iconify text-gold text-3xl" data-icon="phosphor:network"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium mb-4">多节点协同架构</h3>
-                    <p class="text-white/70 text-sm leading-relaxed mb-6">
-                        OpenClaw生态系统采用创新的多节点协同架构，支持在分布式环境中无缝管理AI Agent网络。最新版本引入了智能任务调度算法，可根据各节点的负载情况和能力特征，自动优化任务分配策略，实现系统整体效率的最大化。
-                    </p>
-                    <div class="flex items-center space-x-2 text-gold text-sm">
-                        <span class="iconify" data-icon="phosphor:arrow-right"></span>
-                        <span>查看文档</span>
-                    </div>
+            <!-- Deep Dives -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:file-text"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">深度长文</span>
                 </div>
 
-                <!-- OpenClaw Item 2 -->
-                <div class="bg-gradient-to-br from-charcoal to-charcoal-light rounded-2xl p-8 text-white luxury-shadow card-hover">
-                    <div class="w-14 h-14 rounded-xl bg-gold/20 flex items-center justify-center mb-6">
-                        <span class="iconify text-gold text-3xl" data-icon="phosphor:shield-check"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium mb-4">安全沙箱升级</h3>
-                    <p class="text-white/70 text-sm leading-relaxed mb-6">
-                        OpenClaw 2.5版本带来了全新的安全沙箱机制，支持更细粒度的权限控制和资源隔离。新增的行为审计功能可以完整记录Agent的操作轨迹，配合异常检测算法，为AI Agent的安全运行提供了企业级的保障。
-                    </p>
-                    <div class="flex items-center space-x-2 text-gold text-sm">
-                        <span class="iconify" data-icon="phosphor:arrow-right"></span>
-                        <span>安全白皮书</span>
-                    </div>
+                <div class="space-y-6">
+                    <article class="bg-white border border-beige p-8 card-hover">
+                        <span class="text-xs text-gold font-medium tracking-wider uppercase mb-3 block">本地AI里程碑</span>
+                        <h3 class="font-serif text-2xl font-medium mb-4">GGML与llama.cpp加入Hugging Face</h3>
+                        <p class="text-charcoal-light leading-relaxed mb-4">
+                            GGML和llama.cpp正式宣布加入Hugging Face生态系统，这一举措标志着本地AI时代的重大里程碑。通过整合这些高性能推理框架，Hugging Face进一步巩固了其在开源AI领域的基础设施地位。
+                        </p>
+                        <a href="https://huggingface.co/blog/ggml-joins-hf" target="_blank" class="original-link">
+                            <span>阅读原文</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
+                    </article>
+
+                    <article class="bg-white border border-beige p-8 card-hover">
+                        <span class="text-xs text-gold font-medium tracking-wider uppercase mb-3 block">行业格局</span>
+                        <h3 class="font-serif text-2xl font-medium mb-4">AI芯片新格局：后英伟达时代的竞争版图</h3>
+                        <p class="text-charcoal-light leading-relaxed mb-4">
+                            随着MatX、Etched等初创公司的崛起，以及Google、AMD在AI芯片领域的持续投入，英伟达在AI训练芯片市场的垄断地位正面临前所未有的挑战。
+                        </p>
+                        <a href="https://techcrunch.com/2026/02/24/nvidia-challenger-ai-chip-startup-matx-raised-500m/" target="_blank" class="original-link">
+                            <span>阅读原文</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
+                    </article>
+
+                    <article class="bg-white border border-beige p-8 card-hover">
+                        <span class="text-xs text-gold font-medium tracking-wider uppercase mb-3 block">企业应用</span>
+                        <h3 class="font-serif text-2xl font-medium mb-4">企业级AI Agent的困境与突破</h3>
+                        <p class="text-charcoal-light leading-relaxed mb-4">
+                            IBM与伯克利的研究揭示了65%的企业AI Agent项目失败的根本原因，同时也指明了下一代企业AI Agent的设计方向。
+                        </p>
+                        <a href="https://huggingface.co/blog/ibm-research/itbenchandmast" target="_blank" class="original-link">
+                            <span>阅读原文</span>
+                            <span class="iconify" data-icon="phosphor:arrow-up-right"></span>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- OpenClaw Section -->
+            <section class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:terminal-window"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">OpenClaw 生态</span>
                 </div>
 
-                <!-- OpenClaw Item 3 -->
-                <div class="bg-gradient-to-br from-charcoal to-charcoal-light rounded-2xl p-8 text-white luxury-shadow card-hover">
-                    <div class="w-14 h-14 rounded-xl bg-gold/20 flex items-center justify-center mb-6">
-                        <span class="iconify text-gold text-3xl" data-icon="phosphor:plugs-connected"></span>
-                    </div>
-                    <h3 class="font-serif text-xl font-medium mb-4">插件市场发布</h3>
-                    <p class="text-white/70 text-sm leading-relaxed mb-6">
-                        OpenClaw官方插件市场正式上线，汇集了社区贡献的百余款实用插件。从主流LLM接口到专业领域工具，从数据处理到可视化展示，插件市场为OpenClaw用户提供了快速扩展能力的便捷途径。开发者SDK同步开放，欢迎贡献优质插件。
-                    </p>
-                    <div class="flex items-center space-x-2 text-gold text-sm">
-                        <span class="iconify" data-icon="phosphor:arrow-right"></span>
-                        <span>浏览插件</span>
+                <div class="bg-charcoal text-cream p-8 rounded-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <span class="iconify text-gold text-3xl mb-3" data-icon="phosphor:network"></span>
+                            <h4 class="font-medium mb-2">多节点协同</h4>
+                            <p class="text-sm text-cream/70">架构升级，支持分布式任务处理</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="iconify text-gold text-3xl mb-3" data-icon="phosphor:shield-check"></span>
+                            <h4 class="font-medium mb-2">安全沙箱 2.5</h4>
+                            <p class="text-sm text-cream/70">增强隔离性与权限管理</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="iconify text-gold text-3xl mb-3" data-icon="phosphor:puzzle-piece"></span>
+                            <h4 class="font-medium mb-2">插件市场</h4>
+                            <p class="text-sm text-cream/70">官方插件市场正式上线</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
+            <!-- Archive Section -->
+            <section id="archive" class="mb-20">
+                <div class="flex items-center space-x-2 mb-8">
+                    <span class="iconify text-gold text-xl" data-icon="phosphor:archive-box"></span>
+                    <span class="text-xs tracking-[0.3em] text-gold uppercase">往期回顾</span>
+                </div>
+
+                <div class="bg-cream-dark border border-beige p-6">
+                    <a href="./ai-daily-20260221.html" class="archive-item">
+                        <div>
+                            <div class="archive-date">2025.02.21</div>
+                            <div class="archive-title">AI日报第1期</div>
+                        </div>
+                        <span class="iconify text-gold" data-icon="phosphor:arrow-right"></span>
+                    </a>
+                    <a href="./ai-daily-2025-02-25.html" class="archive-item border-gold bg-gold/5">
+                        <div>
+                            <div class="archive-date">2025.02.25</div>
+                            <div class="archive-title">本期：印度AI市场 · MatX融资 · Uber AI分身</div>
+                        </div>
+                        <span class="iconify text-gold" data-icon="phosphor:check-circle"></span>
+                    </a>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-charcoal text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <span class="iconify text-gold text-2xl" data-icon="phosphor:sparkle-duotone"></span>
-                        <span class="font-serif text-2xl font-semibold tracking-wider">AI DAILY</span>
-                    </div>
-                    <p class="text-white/60 text-sm leading-relaxed max-w-md mb-6">
-                        AI DAILY 致力于为读者提供高质量的人工智能行业资讯与深度分析。我们相信，优秀的技术内容应当兼具专业性与可读性，帮助每一位读者洞察AI时代的脉搏。
-                    </p>
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold/20 transition-colors">
-                            <span class="iconify text-gold" data-icon="phosphor:twitter-logo"></span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold/20 transition-colors">
-                            <span class="iconify text-gold" data-icon="phosphor:github-logo"></span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold/20 transition-colors">
-                            <span class="iconify text-gold" data-icon="phosphor:envelope-simple"></span>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-serif text-lg font-medium mb-6">栏目导航</h4>
-                    <ul class="space-y-3 text-sm text-white/60">
-                        <li><a href="#cover-story" class="hover:text-gold transition-colors">封面故事</a></li>
-                        <li><a href="#news" class="hover:text-gold transition-colors">行业新闻</a></li>
-                        <li><a href="#tools" class="hover:text-gold transition-colors">工具推荐</a></li>
-                        <li><a href="#tutorials" class="hover:text-gold transition-colors">教程资源</a></li>
-                        <li><a href="#deep-dives" class="hover:text-gold transition-colors">深度长文</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-serif text-lg font-medium mb-6">订阅更新</h4>
-                    <p class="text-white/60 text-sm mb-4">订阅我们的日报，第一时间获取AI行业精选内容。</p>
-                    <div class="flex">
-                        <input type="email" placeholder="your@email.com" class="flex-1 bg-white/10 border border-white/20 rounded-l-lg px-4 py-2 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold">
-                        <button class="bg-gold text-charcoal px-4 py-2 rounded-r-lg text-sm font-medium hover:bg-gold-light transition-colors">
-                            订阅
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between">
-                <p class="text-white/40 text-xs">© 2025 AI DAILY. All rights reserved.</p>
-                <p class="text-white/40 text-xs mt-2 md:mt-0">Generated with OpenClaw</p>
+    <footer class="bg-charcoal text-cream py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="font-serif text-3xl mb-4">智讯</div>
+            <p class="text-gold mb-6">全球 AI 行业精选</p>
+            <div class="h-px w-16 bg-gold mx-auto mb-6 opacity-50"></div>
+            <p class="text-sm text-cream/60">2025年2月25日 · 精心甄选</p>
+            <div class="flex items-center justify-center space-x-4 mt-6">
+                <a href="./index.html" class="text-cream/60 hover:text-gold transition-colors">
+                    <span class="iconify text-xl" data-icon="phosphor:house"></span>
+                </a>
+                <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="text-cream/60 hover:text-gold transition-colors">
+                    <span class="iconify text-xl" data-icon="phosphor:github-logo"></span>
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- Reading Progress Script -->
     <script>
-        // Reading Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const progress = (scrollTop / scrollHeight) * 100;
-            document.getElementById('reading-progress').style.width = progress + '%';
-        });
-
-        // Navbar Background on Scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-        });
-
-        // Smooth Scroll for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for Fade-in Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('article, .card-hover').forEach(el => {
-            observer.observe(el);
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('reading-progress').style.width = scrolled + '%';
         });
     </script>
 </body>
