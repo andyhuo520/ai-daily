@@ -19,6 +19,7 @@
                         'beige': '#E8E0D5',
                         'gold': '#C9A962',
                         'gold-light': '#D4B978',
+                        'gold-dark': '#B8983F',
                         'charcoal': '#2C2824',
                         'charcoal-light': '#4A4540',
                         'warm-gray': '#8B8680',
@@ -55,6 +56,13 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
+        }
+        .date-nav-item {
+            transition: all 0.3s;
+        }
+        .date-nav-item:hover {
+            background: rgba(201, 169, 98, 0.1);
+            border-color: #C9A962;
         }
     </style>
 </head>
@@ -102,26 +110,74 @@
                     <div>
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="iconify text-gold" data-icon="phosphor:calendar-blank"></span>
-                            <span class="text-lg font-medium">2025年2月25日</span>
+                            <span class="text-lg font-medium">2025年2月25日 星期二</span>
                         </div>
+                        
                         <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">
                             印度AI市场的<span class="gold-gradient-text">黄金机遇</span>
                         </h2>
                         
+                        <p class="text-charcoal-light mb-4 max-w-2xl">
+                            本期封面故事深度解析印度AI市场的独特战略，以及MatX 5亿美元融资、Uber CEO AI数字分身、IBM-Berkeley企业AI研究等重要动态。
+                        </p>
+                        
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">MatX 5亿美元融资</span>
-                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">Uber AI数字分身</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">MatX 5亿美元</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">Uber AI分身</span>
                             <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">HyperNova 60B</span>
-                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">企业AI Agent研究</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">企业AI Agent</span>
+                            <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full">封面3000字</span>
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-2 text-gold">
+                    <div class="flex items-center space-x-2 text-gold flex-shrink-0">
                         <span class="text-sm">阅读本期</span>
                         <span class="iconify text-xl" data-icon="phosphor:arrow-right"></span>
                     </div>
                 </div>
             </a>
+        </div>
+    </section>
+
+    <!-- Last 7 Days -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center space-x-2 mb-8">
+                <span class="iconify text-gold text-xl" data-icon="phosphor:calendar-check"></span>
+                <span class="text-xs tracking-[0.3em] text-gold uppercase">近7天</span>
+            </div>
+
+            <div class="grid grid-cols-7 gap-2 mb-8">
+                <a href="#" class="date-nav-item border border-beige bg-white/50 p-3 text-center rounded-lg opacity-50 cursor-not-allowed" onclick="return false;">
+                    <div class="text-xs text-warm-gray">02.19</div>
+                    <div class="text-xs">周三</div>
+                </a>
+                <a href="#" class="date-nav-item border border-beige bg-white/50 p-3 text-center rounded-lg opacity-50 cursor-not-allowed" onclick="return false;">
+                    <div class="text-xs text-warm-gray">02.20</div>
+                    <div class="text-xs">周四</div>
+                </a>
+                <a href="./ai-daily-20260221.html" class="date-nav-item border border-beige bg-white p-3 text-center rounded-lg hover:border-gold">
+                    <div class="text-xs text-gold font-medium">02.21</div>
+                    <div class="text-xs">周五</div>
+                </a>
+                <a href="#" class="date-nav-item border border-beige bg-white/50 p-3 text-center rounded-lg opacity-50 cursor-not-allowed" onclick="return false;">
+                    <div class="text-xs text-warm-gray">02.22</div>
+                    <div class="text-xs">周六</div>
+                </a>
+                <a href="#" class="date-nav-item border border-beige bg-white/50 p-3 text-center rounded-lg opacity-50 cursor-not-allowed" onclick="return false;">
+                    <div class="text-xs text-warm-gray">02.23</div>
+                    <div class="text-xs">周日</div>
+                </a>
+                <a href="#" class="date-nav-item border border-beige bg-white/50 p-3 text-center rounded-lg opacity-50 cursor-not-allowed" onclick="return false;">
+                    <div class="text-xs text-warm-gray">02.24</div>
+                    <div class="text-xs">周一</div>
+                </a>
+                <a href="./ai-daily-2025-02-25.html" class="date-nav-item border-2 border-gold bg-gold/5 p-3 text-center rounded-lg">
+                    <div class="text-xs text-gold font-bold">02.25</div>
+                    <div class="text-xs font-medium">周二</div>
+                    <div class="text-[10px] text-gold mt-1">今天</div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -134,29 +190,35 @@
             </div>
 
             <div class="space-y-4">
-                <a href="./ai-daily-2025-02-25.html" class="block bg-white border border-beige p-6 archive-card">
+                <a href="./ai-daily-2025-02-25.html" class="block bg-white border border-beige p-6 archive-card border-l-4 border-l-gold">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-4">
-                            <div class="font-serif text-2xl text-gold">02.25</div>
+                            <div class="font-serif text-3xl text-gold">02.25</div>
                             <div>
-                                <div class="font-medium">2025年2月25日</div>
-                                <div class="text-sm text-warm-gray">印度AI市场 · MatX融资 · Uber AI分身 · HyperNova 60B</div>
+                                <div class="font-medium text-lg">2025年2月25日 周二</div>
+                                <div class="text-sm text-warm-gray">印度AI市场黄金机遇 · MatX 5亿融资 · Uber AI分身 · 完整版</div>
+                                <div class="flex gap-2 mt-2">
+                                    <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded">封面3000字</span>
+                                    <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded">5条新闻</span>
+                                    <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded">5个工具</span>
+                                    <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded">3篇教程</span>
+                                </div>
                             </div>
                         </div>
-                        <span class="iconify text-gold" data-icon="phosphor:arrow-right"></span>
+                        <span class="iconify text-gold text-xl" data-icon="phosphor:arrow-right"></span>
                     </div>
                 </a>
 
-                <a href="./ai-daily-20260221.html" class="block bg-white border border-beige p-6 archive-card opacity-70">
+                <a href="./ai-daily-20260221.html" class="block bg-white border border-beige p-6 archive-card">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-4">
-                            <div class="font-serif text-2xl text-gold">02.21</div>
+                            <div class="font-serif text-3xl text-gold/60">02.21</div>
                             <div>
-                                <div class="font-medium">2025年2月21日</div>
+                                <div class="font-medium text-lg">2025年2月21日 周五</div>
                                 <div class="text-sm text-warm-gray">创刊号</div>
                             </div>
                         </div>
-                        <span class="iconify text-gold" data-icon="phosphor:arrow-right"></span>
+                        <span class="iconify text-gold/60 text-xl" data-icon="phosphor:arrow-right"></span>
                     </div>
                 </a>
             </div>
@@ -170,19 +232,45 @@
                 <div class="text-center p-6 bg-cream-dark border border-beige">
                     <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:newspaper"></span>
                     <h3 class="font-medium mb-2">行业动态</h3>
-                    <p class="text-sm text-warm-gray">精选全球AI行业最新资讯</p>
+                    <p class="text-sm text-warm-gray">精选全球AI行业最新资讯<br>每日5条深度报道</p>
                 </div>
                 
                 <div class="text-center p-6 bg-cream-dark border border-beige">
                     <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:wrench"></span>
                     <h3 class="font-medium mb-2">工具推荐</h3>
-                    <p class="text-sm text-warm-gray">发现提升效率的AI工具</p>
+                    <p class="text-sm text-warm-gray">发现提升效率的AI工具<br>详细评测与使用指南</p>
                 </div>
                 
                 <div class="text-center p-6 bg-cream-dark border border-beige">
                     <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:book-open"></span>
                     <h3 class="font-medium mb-2">教程资源</h3>
-                    <p class="text-sm text-warm-gray">深度教程与实战指南</p>
+                    <p class="text-sm text-warm-gray">深度教程与实战指南<br>每篇1000字以上</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Stats -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-charcoal text-cream p-8 rounded-lg">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-serif text-gold mb-1">3000+</div>
+                        <div class="text-xs text-cream/60">封面故事字数</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-serif text-gold mb-1">5</div>
+                        <div class="text-xs text-cream/60">行业新闻</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-serif text-gold mb-1">3</div>
+                        <div class="text-xs text-cream/60">深度长文</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-serif text-gold mb-1">7:00</div>
+                        <div class="text-xs text-cream/60">每日更新</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -193,11 +281,17 @@
         <div class="max-w-2xl mx-auto px-6 text-center">
             <span class="iconify text-gold text-3xl mb-4" data-icon="phosphor:bell"></span>
             <h2 class="font-serif text-2xl font-medium mb-4">每日更新</h2>
-            <p class="text-warm-gray mb-6">每天早上 7:00（北京时间）自动推送</p>
-            <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal text-cream px-6 py-3 rounded-lg hover:bg-charcoal-light transition-colors">
-                <span class="iconify" data-icon="phosphor:github-logo"></span>
-                <span>GitHub 仓库</span>
-            </a>
+            <p class="text-warm-gray mb-6">每天早上 7:00（北京时间）自动推送最新 AI 资讯</p>
+            <div class="flex items-center justify-center space-x-4">
+                <a href="https://github.com/andyhuo520/ai-daily" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal text-cream px-6 py-3 rounded-lg hover:bg-charcoal-light transition-colors">
+                    <span class="iconify" data-icon="phosphor:github-logo"></span>
+                    <span>GitHub 仓库</span>
+                </a>
+                <a href="./ai-daily-2025-02-25.html" class="inline-flex items-center space-x-2 border border-gold text-gold px-6 py-3 rounded-lg hover:bg-gold/10 transition-colors">
+                    <span class="iconify" data-icon="phosphor:newspaper"></span>
+                    <span>阅读最新</span>
+                </a>
+            </div>
         </div>
     </section>
 
