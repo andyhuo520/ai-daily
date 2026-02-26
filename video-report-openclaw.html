@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>视频解析报告 - OpenClaw灵魂文件解读</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm': '#FAF7F2',
+                        'gold': '#C9A962',
+                        'gold-light': '#E8DCC4',
+                        'dark': '#1A1A1A',
+                        'gray': '#6B6560',
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif SC"', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Serif SC', serif; background: linear-gradient(180deg, #FAF7F2 0%, #FFF 100%); }
+        .timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #C9A962, #E8DCC4); }
+        .timeline-dot { position: absolute; left: 20px; width: 10px; height: 10px; background: #C9A962; border-radius: 50%; border: 2px solid #FAF7F2; }
+        .card { background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .highlight { background: linear-gradient(120deg, #E8DCC4 0%, #E8DCC4 100%); background-repeat: no-repeat; background-size: 100% 40%; background-position: 0 88%; }
+        .gradient-text { background: linear-gradient(135deg, #C9A962, #8B7355); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-dark text-white p-6 pb-8">
+        <div class="max-w-lg mx-auto">
+            <div class="flex items-center gap-2 mb-4 opacity-80">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-sm font-sans tracking-wider">VIDEO ANALYSIS</span>
+            </div>
+            
+            <h1 class="text-2xl font-bold leading-relaxed mb-3">
+                看完这18分钟，你会重新理解AI
+            </h1>
+            
+            <p class="text-gray-300 text-sm font-sans leading-relaxed">
+                OpenClaw灵魂文件逐行解密｜全中文互联网最深度解读
+            </p>
+        </div>
+    </header>
+
+    <!-- Video Info Card -->
+    <div class="max-w-lg mx-auto px-4 -mt-4">
+        <div class="card p-5">
+            <div class="flex items-start gap-4">
+                <div class="w-16 h-16 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <p class="font-bold text-dark mb-1">绿皮火车</p>
+                    <div class="flex items-center gap-3 text-sm text-gray font-sans">
+                        <span>⏱️ 18:45</span>
+                        <span>👁️ 20.7K</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://www.youtube.com/watch?v=SlB6M7__nDA" target="_blank" 
+               class="mt-4 flex items-center justify-center gap-2 w-full py-3 bg-red-600 text-white rounded-xl font-sans font-medium text-sm">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                </svg>
+                在 YouTube 观看
+            </a>
+        </div>
+    </div>
+
+    <!-- Key Insights -->
+    <section class="max-w-lg mx-auto px-4 mt-8">
+        <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+            <span class="w-1 h-6 bg-gold rounded-full"></span>
+            核心洞察
+        </h2>
+        
+        <div class="card p-5 mb-4">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">💎</span>
+                <div>
+                    <p class="font-bold text-dark mb-2">soul.md 是什么？</p>
+                    <p class="text-sm text-gray leading-relaxed">
+                        OpenClaw 创始人 Peter Steinberger 在 Lex Fridman 访谈中首次朗读的<span class="highlight">"灵魂描述文件"</span&gt;。这是 OpenClaw 唯一没有开源的核心文件，定义了 AI Agent 的个性、价值观和行为边界。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-5 mb-4">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">🧠</span>
+                <div>
+                    <p class="font-bold text-dark mb-2">AI 应该有灵魂吗？</p>
+                    <p class="text-sm text-gray leading-relaxed">
+                        Peter 的设计哲学：让 Agent <span class="highlight">"非常自我意识"</span&gt;（very aware）。通过 Bootstrap 孵化过程、Heartbeat 心跳机制、Cron 后台任务、多层记忆系统，让 AI 形成独特的"人格"。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-5">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">⚡</span>
+                <div>
+                    <p class="font-bold text-dark mb-2">恐惧与希望</p>
+                    <p class="text-sm text-gray leading-relaxed">
+                        引用 Karpathy："<span class="highlight">Agency > Intelligence</span&gt;"（能动性大于智能）。AI 是蒸汽机还是核弹？视频最后 Peter 说："<span class="highlight">We're just here to have fun</span&gt;"（我们只是来享受乐趣的）。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="max-w-lg mx-auto px-4 mt-8">
+        <h2 class="text-lg font-bold mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-gold rounded-full"></span>
+            时间轴精要
+        </h2>
+        
+        <div class="relative pl-12">
+            <div class="timeline-line"></div>
+            
+            <!-- Timeline Items -->
+            <div class="relative mb-6">
+                <div class="timeline-dot" style="top: 6px;"></div>
+                <div class="card p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-gold bg-gold/10 px-2 py-1 rounded">01:02</span>
+                        <span class="text-sm font-bold">住院故事</span>
+                    </div>
+                    <p class="text-sm text-gray">Peter 住院经历，"Are you okay?" — 人性化的起点</p>
+                </div>
+            </div>
+            
+            <div class="relative mb-6">
+                <div class="timeline-dot" style="top: 6px;"></div>
+                <div class="card p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-gold bg-gold/10 px-2 py-1 rounded">03:11</span>
+                        <span class="text-sm font-bold">心跳机制</span>
+                    </div>
+                    <p class="text-sm text-gray">Heartbeat：Agent 的"生命体征"监测系统</p>
+                </div>
+            </div>
+            
+            <div class="relative mb-6">
+                <div class="timeline-dot" style="top: 6px;"></div>
+                <div class="card p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-gold bg-gold/10 px-2 py-1 rounded">04:17</span>
+                        <span class="text-sm font-bold">记忆系统</span>
+                    </div>
+                    <p class="text-sm text-gray">Agent Workspace + Memory Layers：持续学习的架构</p>
+                </div>
+            </div>
+            
+            <div class="relative mb-6">
+                <div class="timeline-dot" style="top: 6px; background: #C9A962; box-shadow: 0 0 0 4px rgba(201,169,98,0.3);"></div>
+                <div class="card p-4 border-2 border-gold">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-white bg-gold px-2 py-1 rounded">12:59 ★</span>
+                        <span class="text-sm font-bold">Peter 朗读 soul.md</span>
+                    </div>
+                    <p class="text-sm text-gray">全集高潮！完整朗读 OpenClaw 的"灵魂文件"</p>
+                </div>
+            </div>
+            
+            <div class="relative mb-6">
+                <div class="timeline-dot" style="top: 6px;"></div>
+                <div class="card p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-gold bg-gold/10 px-2 py-1 rounded">14:00</span>
+                        <span class="text-sm font-bold">AI 恐惧论</span>
+                    </div>
+                    <p class="text-sm text-gray">蒸汽机还是核弹？技术乐观主义 vs 生存风险</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="timeline-dot" style="top: 6px;"></div>
+                <div class="card p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-sans font-medium text-gold bg-gold/10 px-2 py-1 rounded">17:29</span>
+                        <span class="text-sm font-bold">终极态度</span>
+                    </div>
+                    <p class="text-sm text-gray">"We're just here to have fun" — 享受创造的乐趣</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="max-w-lg mx-auto px-4 mt-8">
+        <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+            <span class="w-1 h-6 bg-gold rounded-full"></span>
+            关键概念
+        </h2>
+        
+        <div class="grid grid-cols-2 gap-3">
+            <div class="card p-4 text-center">
+                <div class="text-3xl mb-2">🥚</div>
+                <p class="font-bold text-sm mb-1">Bootstrap</p>
+                <p class="text-xs text-gray">孵化过程</p>
+            </div>
+            
+            <div class="card p-4 text-center">
+                <div class="text-3xl mb-2">💓</div>
+                <p class="font-bold text-sm mb-1">Heartbeat</p>
+                <p class="text-xs text-gray">心跳机制</p>
+            </div>
+            
+            <div class="card p-4 text-center">
+                <div class="text-3xl mb-2">⏰</div>
+                <p class="font-bold text-sm mb-1">Cron</p>
+                <p class="text-xs text-gray">后台任务</p>
+            </div>
+            
+            <div class="card p-4 text-center">
+                <div class="text-3xl mb-2">🧠</div>
+                <p class="font-bold text-sm mb-1">Memory</p>
+                <p class="text-xs text-gray">记忆系统</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questions -->
+    <section class="max-w-lg mx-auto px-4 mt-8 mb-8">
+        <div class="card p-5 bg-gradient-to-br from-gold/10 to-transparent">
+            <h3 class="font-bold text-lg mb-3 gradient-text">思考题</h3>
+            
+            <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                    <span class="text-gold font-bold">1.</span>
+                    <p class="text-sm">AI 应该有 soul.md 这样的"灵魂文件"吗？</p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <span class="text-gold font-bold">2.</span>
+                    <p class="text-sm">soul.md 应该开源还是保持封闭？</p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <span class="text-gold font-bold">3.</span>
+                    <p class="text-sm">你希望自己的 AI 助手有独特的"人格"吗？</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8 px-4">
+        <div class="max-w-lg mx-auto text-center">
+            <p class="text-gold font-serif text-lg mb-2">Video Analyzer</p>
+            <p class="text-gray-400 text-xs font-sans mb-4">
+                由 OpenClaw 自动生成 · 2026.02.26
+            </p>
+            
+            <a href="https://github.com/openclaw/openclaw" target="_blank" 
+               class="inline-flex items-center gap-2 text-sm text-gold hover:underline">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                </svg>
+                OpenClaw GitHub
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
