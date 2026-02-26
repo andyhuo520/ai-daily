@@ -1,0 +1,11 @@
+{
+  "name": "video-analyzer",
+  "version": "1.0.0",
+  "description": "下载 YouTube/Bilibili 视频，提取音频并转录，生成结构化摘要",
+  "author": "AI Assistant",
+  "license": "MIT",
+  "tags": ["video", "youtube", "download", "transcribe", "analysis"],
+  "entry": {
+    "cli": "scripts/analyze-video.py"
+  }
+}

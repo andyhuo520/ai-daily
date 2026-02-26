@@ -1,0 +1,13 @@
+{
+  "videos": [
+    {
+      "url": "https://youtu.be/SlB6M7__nDA",
+      "title": "OpenClaw灵魂文件解读",
+      "language": "zh",
+      "notes": "SOUL.md逐行分析"
+    }
+  ],
+  "output_dir": "./output",
+  "transcribe": false,
+  "summarize": true
+}
