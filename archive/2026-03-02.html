@@ -7,162 +7,334 @@
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cream: #FAF7F2;
+            --cream-dark: #F5F0E8;
+            --beige: #E8E0D5;
+            --beige-dark: #D4C9B8;
+            --gold: #C9A962;
+            --gold-light: #D4B978;
+            --gold-dark: #B8983F;
+            --charcoal: #2C2824;
+            --charcoal-light: #4A4540;
+            --warm-gray: #8B8680;
+            --border: rgba(201,169,98,0.3);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAF7F2; color: #2C2824; line-height: 1.6; }
+        body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.8; -webkit-font-smoothing: antialiased; }
         
-        .navbar { position: fixed; top: 0; left: 0; right: 0; background: #2C2824; z-index: 1000; border-bottom: 1px solid #C9A962; }
-        .navbar-inner { max-width: 900px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .navbar a { color: #C9A962; text-decoration: none; font-weight: 600; font-family: 'Noto Serif SC', serif; }
-        .navbar-links { display: flex; gap: 20px; }
-        .navbar-links a { color: #E8E0D5; font-weight: 400; font-size: 14px; }
-        .navbar-links a:hover { color: #C9A962; }
-        
-        .date-nav { background: linear-gradient(180deg, #2C2824 0%, #1A1815 100%); padding: 70px 20px 40px; text-align: center; }
-        .date-picker { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .date-btn { background: transparent; border: 1px solid #C9A962; color: #C9A962; padding: 8px 16px; cursor: pointer; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; gap: 6px; }
-        .date-btn:hover:not(:disabled) { background: #C9A962; color: #2C2824; }
+        /* 日期导航 */
+        .date-nav { background: var(--charcoal); padding: 20px; text-align: center; border-bottom: 1px solid var(--gold); }
+        .date-nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .date-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; cursor: pointer; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-family: 'Noto Sans SC', sans-serif; }
+        .date-btn:hover:not(:disabled) { background: var(--gold); color: var(--charcoal); }
         .date-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .current-date { color: #FAF7F2; font-size: 32px; font-weight: 600; font-family: 'Noto Serif SC', serif; }
-        .weekday { color: #C9A962; margin-top: 8px; font-size: 15px; letter-spacing: 2px; }
+        .date-btn.active { background: var(--gold); color: var(--charcoal); }
         
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .section { margin-bottom: 40px; }
-        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #C9A962; }
-        .section-header h2 { font-size: 20px; font-family: 'Noto Serif SC', serif; display: flex; align-items: center; gap: 8px; }
-        .section-header .iconify { color: #C9A962; font-size: 22px; }
+        /* Header */
+        .masthead { background: linear-gradient(180deg, var(--charcoal) 0%, #1A1815 100%); color: var(--cream); padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark)); }
+        .masthead::after { content: ''; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: var(--gold); transform: translateX(-50%) rotate(45deg); opacity: 0.6; }
+        .edition-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--gold); color: var(--gold); padding: 8px 24px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; font-weight: 500; }
+        .masthead h1 { font-family: 'Noto Serif SC', serif; font-size: 56px; font-weight: 700; letter-spacing: 12px; margin-bottom: 16px; color: var(--cream); }
+        .masthead-subtitle { font-size: 14px; color: var(--gold); letter-spacing: 4px; margin-bottom: 40px; }
+        .masthead-date { font-size: 15px; color: var(--beige-dark); letter-spacing: 2px; }
         
-        .news-card { background: #F5F0E8; border: 1px solid #E8E0D5; padding: 20px 25px; margin-bottom: 12px; text-decoration: none; color: inherit; display: block; transition: all 0.3s; }
-        .news-card:hover { border-color: #C9A962; transform: translateX(5px); }
-        .news-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; line-height: 1.5; }
-        .news-meta { font-size: 13px; color: #8B8680; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-        .news-meta span { display: flex; align-items: center; gap: 4px; }
-        .source-tag { background: #C9A962; color: #FAF7F2; padding: 2px 10px; font-size: 11px; border-radius: 2px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 30px; }
+        .section-header { display: flex; align-items: center; gap: 16px; margin: 70px 0 40px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .section-header h2 { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 600; color: var(--charcoal); display: flex; align-items: center; gap: 12px; }
+        .section-header .iconify { color: var(--gold); font-size: 28px; }
+        .section-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
         
-        .hero-card { background: linear-gradient(135deg, #2C2824 0%, #1A1815 100%); color: #FAF7F2; border: 2px solid #C9A962; padding: 30px; }
-        .hero-card .news-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 600; }
-        .hero-card .news-meta { color: #E8E0D5; }
+        /* 封面故事 */
+        .hero-article { background: var(--cream-dark); border: 1px solid var(--beige); padding: 50px; position: relative; margin-bottom: 50px; }
+        .hero-article::before { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1px solid var(--gold); opacity: 0.4; pointer-events: none; }
+        .hero-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .hero-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
+        .hero-title { font-family: 'Noto Serif SC', serif; font-size: 32px; font-weight: 600; line-height: 1.4; color: var(--charcoal); margin-bottom: 20px; }
+        .hero-meta { font-size: 13px; color: var(--warm-gray); margin-bottom: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .hero-meta span { display: flex; align-items: center; gap: 8px; }
+        .hero-content { font-size: 16px; line-height: 2.2; color: var(--charcoal-light); margin-bottom: 30px; }
+        .hero-content p { margin-bottom: 20px; text-indent: 2em; }
+        .hero-content h3 { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 600; color: var(--charcoal); margin: 30px 0 15px; padding-left: 16px; border-left: 3px solid var(--gold); }
+        .hero-commentary { background: var(--charcoal); color: var(--cream); padding: 30px 35px; margin: 0 -50px -50px -50px; position: relative; }
+        .hero-commentary::before { content: ''; position: absolute; top: 20px; left: 25px; width: 40px; height: 40px; border-left: 3px solid var(--gold); border-top: 3px solid var(--gold); opacity: 0.3; }
+        .commentary-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .commentary-text { font-size: 15px; line-height: 1.9; padding-left: 30px; }
+        .hero-link { display: inline-flex; align-items: center; gap: 10px; color: var(--gold); text-decoration: none; font-size: 13px; letter-spacing: 1px; margin-top: 25px; transition: all 0.3s; }
+        .hero-link:hover { color: var(--gold-light); gap: 15px; }
         
-        .sources { background: #F5F0E8; padding: 25px; border: 1px solid #E8E0D5; margin-top: 30px; }
-        .sources h3 { font-family: 'Noto Serif SC', serif; margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
-        .source-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #8B8680; }
-        .source-item .iconify { color: #C9A962; font-size: 18px; }
+        /* 文章卡片 */
+        .article-list { display: flex; flex-direction: column; gap: 35px; }
+        .article-card { display: grid; grid-template-columns: 70px 1fr; gap: 30px; padding: 35px; background: var(--cream-dark); border: 1px solid var(--beige); transition: all 0.4s ease; text-decoration: none; color: inherit; }
+        .article-card:hover { background: #FFFDF9; border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 20px 60px rgba(44,40,36,0.08); }
+        .article-number { font-family: 'Noto Serif SC', serif; font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1; opacity: 0.8; }
+        .article-content { display: flex; flex-direction: column; gap: 15px; }
+        .article-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 600; color: var(--charcoal); line-height: 1.5; }
+        .article-summary { font-size: 15px; color: var(--charcoal-light); line-height: 1.9; }
+        .article-summary p { margin-bottom: 12px; }
+        .article-commentary { font-size: 14px; color: var(--gold-dark); font-style: italic; padding: 15px 20px; background: rgba(201,169,98,0.08); border-left: 3px solid var(--gold); line-height: 1.7; margin-top: 5px; }
+        .article-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 20px; border-top: 1px solid var(--beige); }
+        .article-source { font-size: 12px; letter-spacing: 1px; color: var(--warm-gray); text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+        .article-link { font-size: 12px; letter-spacing: 1px; color: var(--charcoal); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .article-link:hover { color: var(--gold); }
         
-        .footer { background: #2C2824; color: #E8E0D5; text-align: center; padding: 30px 20px; font-size: 14px; }
-        .footer a { color: #C9A962; text-decoration: none; }
+        .tag { display: inline-flex; align-items: center; gap: 4px; background: var(--beige); color: var(--charcoal-light); padding: 3px 10px; font-size: 11px; letter-spacing: 1px; border: 1px solid var(--border); margin-right: 6px; }
+        .tag-primary { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
+        
+        .section-divider { display: flex; align-items: center; justify-content: center; margin: 60px 0; color: var(--gold); }
+        .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); max-width: 200px; }
+        .section-divider .iconify { padding: 0 20px; font-size: 20px; }
+        
+        /* 数据来源 */
+        .sources-section { background: var(--cream-dark); padding: 40px; border: 1px solid var(--beige); margin-top: 50px; }
+        .sources-section h3 { font-family: 'Noto Serif SC', serif; font-size: 20px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        .source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .source-item { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: var(--cream); border: 1px solid var(--beige); }
+        .source-item .iconify { font-size: 24px; color: var(--gold); flex-shrink: 0; }
+        .source-item strong { display: block; font-size: 15px; margin-bottom: 5px; color: var(--charcoal); }
+        .source-item span { font-size: 13px; color: var(--warm-gray); }
+        
+        /* Footer */
+        .footer { background: var(--charcoal); color: var(--beige); padding: 60px 40px; text-align: center; margin-top: 80px; }
+        .footer-brand { font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 600; letter-spacing: 8px; color: var(--cream); margin-bottom: 20px; }
+        .footer-tagline { font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 20px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .footer-links a { color: var(--beige); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copyright { font-size: 12px; color: var(--warm-gray); letter-spacing: 1px; }
+        
+        @media (max-width: 768px) {
+            .masthead { padding: 50px 20px 40px; }
+            .masthead h1 { font-size: 36px; letter-spacing: 6px; }
+            .container { padding: 40px 20px; }
+            .hero-article { padding: 30px; }
+            .hero-title { font-size: 24px; }
+            .hero-commentary { margin: 0 -30px -30px -30px; padding: 20px 25px; }
+            .article-card { grid-template-columns: 1fr; gap: 20px; padding: 25px; }
+            .article-number { font-size: 32px; }
+            .date-nav-inner { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="index.html">📰 智讯 AI Daily</a>
-            <div class="navbar-links">
-                <a href="archive.html">📖 往期回顾</a>
-                <a href="https://github.com/andyhuo520/ai-daily" target="_blank">GitHub</a>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="date-nav">
-        <div class="date-picker">
+    <!-- 日期导航 -->
+    <nav class="date-nav">
+        <div class="date-nav-inner">
             <button class="date-btn" onclick="location.href='archive/2026-03-01.html'">
-                <span class="iconify" data-icon="phosphor:caret-left"></span> 前一天
+                <span class="iconify" data-icon="phosphor:caret-left"></span> 3月1日
             </button>
-            <button class="date-btn" onclick="location.href='index.html'">
+            <button class="date-btn" onclick="location.href='archive/2026-02-28.html'">
+                <span class="iconify" data-icon="phosphor:caret-left"></span> 2月28日
+            </button>
+            <button class="date-btn active">
                 <span class="iconify" data-icon="phosphor:calendar-duotone"></span> 今天
             </button>
             <button class="date-btn" disabled>
-                后一天 <span class="iconify" data-icon="phosphor:caret-right"></span>
+                明天 <span class="iconify" data-icon="phosphor:caret-right"></span>
             </button>
         </div>
-        <div class="current-date">2026年03月02日</div>
-        <div class="weekday">星期日</div>
-    </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="edition-badge">
+            <span class="iconify" data-icon="phosphor:crown-duotone"></span>
+            精选 Edition
+        </div>
+        <h1>智　讯</h1>
+        <p class="masthead-subtitle">每日 AI 行业洞察</p>
+        <p class="masthead-date">2026年03月02日 · 星期日</p>
+    </header>
     
     <div class="container">
-        <section class="section">
+        <!-- 封面故事 -->
+        <section>
             <div class="section-header">
-                <h2><span class="iconify" data-icon="phosphor:fire-duotone"></span>今日AI热点</h2>
+                <h2><span class="iconify" data-icon="phosphor:star-duotone"></span>封面故事</h2>
+                <div class="section-line"></div>
             </div>
             
-            <a href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" class="news-card hero-card">
-                <div class="news-title">WebMCP is available for early preview - Chrome浏览器支持MCP协议</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 142</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 45</span>
-                    <span class="source-tag">Hacker News</span>
+            <article class="hero-article">
+                <div class="hero-label">
+                    <span class="iconify" data-icon="phosphor:lightning-duotone"></span>
+                    核心技术深度解析
+                    <span class="tag tag-primary">技术突破</span>
                 </div>
-            </a>
-            
-            <a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank" class="news-card">
-                <div class="news-title">MicroGPT - Andrej Karpathy详解最小化GPT实现</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 1708</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 324</span>
-                    <span class="source-tag">Hacker News</span>
+                <h2 class="hero-title">MicroGPT：Andrej Karpathy开源最小化GPT实现，重新定义AI教育</h2>
+                <div class="hero-meta">
+                    <span><span class="iconify" data-icon="phosphor:user-duotone"></span>Andrej Karpathy</span>
+                    <span><span class="iconify" data-icon="phosphor:calendar-duotone"></span>2026-02-12</span>
+                    <span><span class="iconify" data-icon="phosphor:clock-duotone"></span>阅读时间 10 分钟</span>
                 </div>
-            </a>
-            
-            <a href="https://growingswe.com/blog/microgpt" target="_blank" class="news-card">
-                <div class="news-title">MicroGPT explained interactively - 交互式教程深入理解GPT</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 204</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 56</span>
-                    <span class="source-tag">Hacker News</span>
+                <div class="hero-content">
+                    <p>2026年2月，前OpenAI创始团队成员、前Tesla AI总监Andrej Karpathy发布了MicroGPT项目——一个极简但完整的GPT实现。这个项目迅速在AI社区引发热议，不仅因为Karpathy本人的影响力，更因为它为理解大语言模型的底层原理提供了一个清晰、可操作的入口。</p>
+                    
+                    <h3>什么是MicroGPT？</h3>
+                    <p>MicroGPT是一个从零开始实现的GPT模型，代码简洁到可以放在单个文件中。与动辄数十亿参数的商业模型不同，MicroGPT的核心目标是教育和理解。它剥离了所有工程复杂性，只保留GPT架构的本质：Transformer解码器、自注意力机制、以及下一个token预测的训练目标。</p>
+                    
+                    <p>Karpathy在博客中详细解释了每一行代码的作用。从tokenization到模型架构，从训练循环到推理过程，MicroGPT提供了一个端到端的视角，让开发者能够真正理解"语言模型是如何工作的"这一根本问题。</p>
+                    
+                    <h3>为什么MicroGPT如此重要？</h3>
+                    <p>在当前AI领域，存在一个严重的认知断层。一方面，像GPT-4、Claude这样的商业模型越来越强大；另一方面，大多数开发者和研究人员只能通过API调用这些模型，对其内部运作机制知之甚少。这种"黑箱"状态不仅限制了创新，也带来了安全和伦理方面的担忧。</p>
+                    
+                    <p>MicroGPT的价值在于它弥合了这个断层。通过阅读和运行MicroGPT代码，开发者可以在几小时内理解Transformer架构的核心原理。这种"第一性原理"的理解，是无法通过调用API获得的。正如Karpathy所说："如果你不能从头开始构建它，你就没有真正理解它。"</p>
+                    
+                    <h3>技术细节与创新</h3>
+                    <p>MicroGPT虽然简单，但实现了现代GPT的所有核心组件：多层自注意力机制、层归一化、残差连接、以及GELU激活函数。更重要的是，它展示了如何将这些组件组合成一个可以训练和推理的完整系统。</p>
+                    
+                    <p>项目还包含了一个交互式教程，由GrowingSWE团队开发。这个教程将MicroGPT的每一步分解成可视化模块，让学习者可以逐步理解模型的工作原理。这种"可解释的AI教育"模式，可能成为未来AI人才培养的标准范式。</p>
+                    
+                    <h3>社区反响与影响</h3>
+                    <p>MicroGPT在Hacker News上获得了超过1700个赞，成为近期最热门的AI相关话题之一。许多开发者表示，通过学习MicroGPT，他们第一次真正理解了注意力机制的工作原理。教育工作者也开始将MicroGPT纳入AI课程的教学材料。</p>
+                    
+                    <p>更广泛地说，MicroGPT代表了AI领域一种重要的趋势：开源教育资源的崛起。当商业模型变得越来越闭源，像MicroGPT这样的项目为社区提供了一个理解底层技术的窗口。这对于AI的民主化和长期健康发展至关重要。</p>
                 </div>
-            </a>
-            
-            <a href="https://www.reddit.com/r/MachineLearning/comments/1rhuwyt/" target="_blank" class="news-card">
-                <div class="news-title">[R] Benchmarked 94 LLM endpoints for Jan 2026: 开源模型距闭源仅差5分</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 36</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 9</span>
-                    <span class="source-tag">Reddit r/ML</span>
+                <div class="hero-commentary">
+                    <div class="commentary-label">
+                        <span class="iconify" data-icon="phosphor:chat-circle-text-duotone"></span>
+                        热辣点评
+                    </div>
+                    <div class="commentary-text">
+                        MicroGPT的价值远超其代码量。在AI日益商业化的今天，Karpathy用最简单的方式告诉我们：复杂的技术本质上是可以理解的。对于想要进入AI领域的开发者，MicroGPT是最好的起点；对于已经在行业中工作的人，它是一个回归基础、深化理解的机会。正如一位评论者所说："我终于理解了注意力机制，不是通过阅读论文，而是通过运行代码。"
+                    </div>
+                    <a href="http://karpathy.github.io/2026/02/12/microgpt/" class="hero-link" target="_blank">
+                        阅读原文 <span class="iconify" data-icon="phosphor:arrow-right-duotone"></span>
+                    </a>
                 </div>
-            </a>
-            
-            <a href="https://github.com/mandel-macaque/memento" target="_blank" class="news-card">
-                <div class="news-title">If AI writes code, should the session be part of the commit?</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 11</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 8</span>
-                    <span class="source-tag">Hacker News</span>
-                </div>
-            </a>
-            
-            <a href="https://github.com/aklein4/easy-torch-tpu" target="_blank" class="news-card">
-                <div class="news-title">[P] easy-torch-tpu: 让PyTorch在Google TPU上训练变得简单</div>
-                <div class="news-meta">
-                    <span><span class="iconify" data-icon="phosphor:arrow-up"></span> 1</span>
-                    <span><span class="iconify" data-icon="phosphor:chat-circle"></span> 0</span>
-                    <span class="source-tag">Reddit r/ML</span>
-                </div>
-            </a>
+            </article>
         </section>
-        
-        <div class="sources">
+
+        <div class="section-divider"><span class="iconify" data-icon="phosphor:diamond-duotone"></span></div>
+
+        <!-- 行业动态 -->
+        <section>
+            <div class="section-header">
+                <h2><span class="iconify" data-icon="phosphor:trend-up-duotone"></span>行业动态</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="article-list">
+                <a href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" class="article-card">
+                    <div class="article-number">01</div>
+                    <div class="article-content">
+                        <h3 class="article-title">Chrome浏览器支持MCP协议：WebMCP开启早期预览</h3>
+                        <div class="article-summary">
+                            <p>Google宣布Chrome浏览器开始支持MCP（Model Context Protocol）协议的早期预览版本。MCP是由Anthropic提出的开放标准，旨在让AI模型能够安全地访问外部工具和数据源。</p>
+                            <p>这意味着开发者可以直接在浏览器中构建AI代理应用，无需额外的桌面客户端。Chrome的这一举措可能彻底改变Web AI应用的形态，让浏览器成为AI代理的主要运行环境。</p>
+                        </div>
+                        <div class="article-commentary">
+                            浏览器原生支持MCP是一个重大信号：AI代理正在成为Web平台的一等公民。对于开发者来说，这打开了全新的可能性——AI可以直接与网页交互、操作DOM、读取和修改内容。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:globe-duotone"></span>Chrome Blog</span>
+                            <span class="article-link">阅读详情 <span class="iconify" data-icon="phosphor:arrow-right"></span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.reddit.com/r/MachineLearning/comments/1rhuwyt/" target="_blank" class="article-card">
+                    <div class="article-number">02</div>
+                    <div class="article-content">
+                        <h3 class="article-title">94个LLM基准测试报告：开源模型距闭源仅差5分</h3>
+                        <div class="article-summary">
+                            <p>来自whatllm.org的最新报告对94个主流LLM端点进行了全面基准测试。结果显示，开源模型与闭源模型的差距已缩小到5个质量指数点。在智能体任务上，开源模型甚至已经领先。</p>
+                            <p>报告采用的质量指数（QI）综合了AIME 2025、LiveCodeBench、GPQA Diamond等多个基准。Gemini 3 Pro Preview和GPT-5.2以73分并列榜首，而开源的GLM-4.7达到了68分。</p>
+                        </div>
+                        <div class="article-commentary">
+                            开源与闭源的差距从2025年初的12分缩小到现在的5分，这个速度超出所有人的预期。DeepSeek V3.2以$0.30/M的价格提供了接近GPT-5.1的质量，成本降低85%。开源模型的胜利可能比预期来得更早。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>Reddit r/ML</span>
+                            <span class="article-link">阅读详情 <span class="iconify" data-icon="phosphor:arrow-right"></span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mandel-macaque/memento" target="_blank" class="article-card">
+                    <div class="article-number">03</div>
+                    <div class="article-content">
+                        <h3 class="article-title">AI写代码的会话应该成为Git提交的一部分吗？</h3>
+                        <div class="article-summary">
+                            <p>Memento项目提出了一个有趣的问题：当AI代理编写代码时，与AI的完整对话历史是否应该被保存在Git仓库中？这个问题的答案可能改变我们对代码审查和知识传承的理解。</p>
+                            <p>传统的代码提交只记录最终结果，但AI辅助编程的价值很大程度上在于过程——为什么选择这个方案？尝试过哪些替代方案？这些信息对于未来的维护者极其宝贵。</p>
+                        </div>
+                        <div class="article-commentary">
+                            这是一个看似小众但影响深远的问题。如果每个提交都包含完整的AI对话历史，代码仓库将变成一个巨大的知识库。但这也带来了存储成本和隐私问题。需要新的工具和规范来平衡这些因素。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:github-logo-duotone"></span>GitHub</span>
+                            <span class="article-link">查看项目 <span class="iconify" data-icon="phosphor:arrow-right"></span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/aklein4/easy-torch-tpu" target="_blank" class="article-card">
+                    <div class="article-number">04</div>
+                    <div class="article-content">
+                        <h3 class="article-title">easy-torch-tpu：让PyTorch在Google TPU上训练变得简单</h3>
+                        <div class="article-summary">
+                            <p>一位研究者发布了easy-torch-tpu框架，旨在简化PyTorch在Google TPU上的训练体验。相比于官方的torchprime，这个框架更注重简洁性、灵活性和学术规模的易用性。</p>
+                            <p>框架支持1-100亿参数模型，32-64芯片规模，集成了Weights & Biases实验追踪和Hugging Face数据集流式加载。对于想要尝试TPU但被复杂性劝退的研究者，这是一个很好的起点。</p>
+                        </div>
+                        <div class="article-commentary">
+                            TPU一直被认为是"难用的硬件"，PyTorch/XLA的文档和调试体验也让许多人望而却步。easy-torch-tpu的出现降低了TPU的使用门槛，对于需要大规模训练的学术研究是一个好消息。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:github-logo-duotone"></span>GitHub</span>
+                            <span class="article-link">查看项目 <span class="iconify" data-icon="phosphor:arrow-right"></span></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="iconify" data-icon="phosphor:diamond-duotone"></span></div>
+
+        <!-- 数据来源 -->
+        <div class="sources-section">
             <h3><span class="iconify" data-icon="phosphor:rss-duotone"></span> 数据来源</h3>
-            <div class="source-item">
-                <span class="iconify" data-icon="phosphor:fire-duotone"></span>
-                <span><strong>Hacker News</strong> - Y Combinator 技术社区热门话题，AI相关内容筛选</span>
-            </div>
-            <div class="source-item">
-                <span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>
-                <span><strong>Reddit r/MachineLearning</strong> - 300万+订阅，机器学习前沿讨论</span>
-            </div>
-            <div class="source-item">
-                <span class="iconify" data-icon="phosphor:robot-duotone"></span>
-                <span><strong>Reddit r/artificial</strong> - 人工智能行业资讯与观点</span>
-            </div>
-            <div class="source-item">
-                <span class="iconify" data-icon="phosphor:open-ai-logo-duotone"></span>
-                <span><strong>Reddit r/OpenAI</strong> - OpenAI产品与技术讨论</span>
+            <div class="source-grid">
+                <div class="source-item">
+                    <span class="iconify" data-icon="phosphor:fire-duotone"></span>
+                    <div>
+                        <strong>Hacker News</strong>
+                        <span>Y Combinator 技术社区，AI相关热门话题筛选</span>
+                    </div>
+                </div>
+                <div class="source-item">
+                    <span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>
+                    <div>
+                        <strong>Reddit r/MachineLearning</strong>
+                        <span>300万+订阅，机器学习前沿讨论</span>
+                    </div>
+                </div>
+                <div class="source-item">
+                    <span class="iconify" data-icon="phosphor:robot-duotone"></span>
+                    <div>
+                        <strong>Reddit r/artificial</strong>
+                        <span>人工智能行业资讯与观点</span>
+                    </div>
+                </div>
+                <div class="source-item">
+                    <span class="iconify" data-icon="phosphor:open-ai-logo-duotone"></span>
+                    <div>
+                        <strong>Reddit r/OpenAI</strong>
+                        <span>OpenAI产品与技术讨论</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
     <footer class="footer">
-        <p>智讯 AI Daily · 每日AI资讯精选</p>
-        <p style="margin-top: 8px; font-size: 12px;">Generated by <a href="https://github.com/andyhuo520/ai-daily" target="_blank">OpenClaw</a> · 2026-03-02</p>
+        <div class="footer-brand">智　讯</div>
+        <p class="footer-tagline">每日 AI 资讯精选 · 深度解读</p>
+        <div class="footer-links">
+            <a href="index.html">今日</a>
+            <a href="archive.html">往期</a>
+            <a href="https://github.com/andyhuo520/ai-daily" target="_blank">GitHub</a>
+        </div>
+        <p class="footer-copyright">© 2026 智讯 AI Daily · Generated by OpenClaw</p>
     </footer>
 </body>
 </html>
