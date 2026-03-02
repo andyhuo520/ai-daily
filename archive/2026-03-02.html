@@ -11,7 +11,6 @@
             --cream: #FAF7F2;
             --cream-dark: #F5F0E8;
             --beige: #E8E0D5;
-            --beige-dark: #D4C9B8;
             --gold: #C9A962;
             --gold-light: #D4B978;
             --gold-dark: #B8983F;
@@ -23,7 +22,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.8; -webkit-font-smoothing: antialiased; }
         
-        /* 日期导航 */
         .date-nav { background: var(--charcoal); padding: 20px; text-align: center; border-bottom: 1px solid var(--gold); }
         .date-nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
         .date-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; cursor: pointer; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-family: 'Noto Sans SC', sans-serif; text-decoration: none; }
@@ -48,7 +46,6 @@
         .hero-article { background: var(--cream-dark); border: 1px solid var(--beige); padding: 50px; position: relative; margin-bottom: 50px; }
         .hero-article::before { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1px solid var(--gold); opacity: 0.4; pointer-events: none; }
         .hero-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-        .hero-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
         .hero-title { font-family: 'Noto Serif SC', serif; font-size: 32px; font-weight: 600; line-height: 1.4; color: var(--charcoal); margin-bottom: 20px; }
         .hero-meta { font-size: 13px; color: var(--warm-gray); margin-bottom: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
         .hero-meta span { display: flex; align-items: center; gap: 8px; }
@@ -152,33 +149,30 @@
             <article class="hero-article">
                 <div class="hero-label">
                     <span class="iconify" data-icon="phosphor:lightning-duotone"></span>
-                    核心技术深度解析
-                    <span class="tag tag-primary">技术突破</span>
+                    5小时前发布
+                    <span class="tag tag-primary">重大突破</span>
                 </div>
-                <h2 class="hero-title">MicroGPT：Andrej Karpathy开源最小化GPT实现，重新定义AI教育</h2>
+                <h2 class="hero-title">Chrome浏览器支持MCP协议：AI代理的Web时代正式开启</h2>
                 <div class="hero-meta">
-                    <span><span class="iconify" data-icon="phosphor:user-duotone"></span>Andrej Karpathy</span>
+                    <span><span class="iconify" data-icon="phosphor:buildings-duotone"></span>Google Chrome</span>
                     <span><span class="iconify" data-icon="phosphor:calendar-duotone"></span>2026-03-02</span>
-                    <span><span class="iconify" data-icon="phosphor:clock-duotone"></span>阅读时间 10 分钟</span>
+                    <span><span class="iconify" data-icon="phosphor:clock-duotone"></span>181分热度</span>
                 </div>
                 <div class="hero-content">
-                    <p>2026年2月，前OpenAI创始团队成员、前Tesla AI总监Andrej Karpathy发布了MicroGPT项目——一个极简但完整的GPT实现。这个项目迅速在AI社区引发热议，Hacker News上获得超过1700个赞，成为近期最热门的AI话题之一。</p>
+                    <p>2026年3月2日，Google宣布Chrome浏览器开始支持MCP（Model Context Protocol）协议的早期预览版本。这一消息迅速在开发者社区引发热议，在Hacker News上获得超过180个赞，成为当天最受关注的AI相关新闻。</p>
                     
-                    <h3>什么是MicroGPT？</h3>
-                    <p>MicroGPT是一个从零开始实现的GPT模型，代码简洁到可以放在单个文件中。与动辄数十亿参数的商业模型不同，MicroGPT的核心目标是教育和理解。它剥离了所有工程复杂性，只保留GPT架构的本质：Transformer解码器、自注意力机制、以及下一个token预测的训练目标。</p>
+                    <h3>什么是MCP协议？</h3>
+                    <p>MCP（Model Context Protocol）是由Anthropic提出的开放标准，旨在让AI模型能够安全地访问外部工具和数据源。此前，MCP主要用于桌面端应用，需要用户安装专门的客户端。Chrome的原生支持意味着这一障碍被彻底打破。</p>
                     
-                    <p>Karpathy在博客中详细解释了每一行代码的作用。从tokenization到模型架构，从训练循环到推理过程，MicroGPT提供了一个端到端的视角，让开发者能够真正理解"语言模型是如何工作的"这一根本问题。</p>
+                    <p>通过WebMCP，开发者可以直接在浏览器中构建AI代理应用，无需任何额外软件。AI代理将能够与网页交互、操作DOM、读取和修改内容，甚至可以跨多个标签页协同工作。这开启了"AI优先"的Web应用新时代。</p>
                     
-                    <h3>交互式学习体验</h3>
-                    <p>GrowingSWE团队基于MicroGPT开发了交互式教程，将每一步分解成可视化模块。学习者可以逐步理解：词元如何被编码、注意力权重如何计算、前向传播如何进行、损失函数如何优化。这种"可解释的AI教育"模式，可能成为未来AI人才培养的标准范式。</p>
+                    <h3>技术细节</h3>
+                    <p>WebMCP采用早期的预览模式发布，开发者需要在Chrome Flags中启用相关功能。目前支持的API包括：页面内容读取、DOM操作、表单填写、导航控制等。Google表示，未来还将支持更多高级功能，如文件系统访问、摄像头和麦克风控制等。</p>
                     
-                    <h3>为什么这很重要？</h3>
-                    <p>在当前AI领域，存在一个严重的认知断层。一方面，像GPT-4、Claude这样的商业模型越来越强大；另一方面，大多数开发者和研究人员只能通过API调用这些模型，对其内部运作机制知之甚少。MicroGPT的价值在于它弥合了这个断层。</p>
+                    <h3>行业影响</h3>
+                    <p>这一举措可能彻底改变Web AI应用的形态。此前，AI代理主要运行在云端或专用客户端中；现在，浏览器本身成为了AI代理的一等公民。对于企业用户来说，这意味着可以构建更强大的自动化工作流；对于普通用户来说，AI助手将能够更直接地帮助他们完成复杂的网页任务。</p>
                     
-                    <p>正如Karpathy所说："如果你不能从头开始构建它，你就没有真正理解它。"通过阅读和运行MicroGPT代码，开发者可以在几小时内理解Transformer架构的核心原理。</p>
-                    
-                    <h3>社区反响</h3>
-                    <p>MicroGPT在Hacker News上获得了超过1700个赞，成为近期最热门的AI相关话题。许多开发者表示，通过学习MicroGPT，他们第一次真正理解了注意力机制的工作原理。教育工作者也开始将MicroGPT纳入AI课程的教学材料。</p>
+                    <p>分析人士认为，Chrome支持MCP是Google在AI代理竞赛中的重要一步。它与OpenAI的Operator、Anthropic的Computer Use形成了直接竞争，但采用了更开放的策略。</p>
                 </div>
                 <div class="hero-commentary">
                     <div class="commentary-label">
@@ -186,10 +180,10 @@
                         热辣点评
                     </div>
                     <div class="commentary-text">
-                        MicroGPT的价值远超其代码量。在AI日益商业化的今天，Karpathy用最简单的方式告诉我们：复杂的技术本质上是可以理解的。对于想要进入AI领域的开发者，MicroGPT是最好的起点；对于已经在行业中工作的人，它是一个回归基础、深化理解的机会。正如一位评论者所说："我终于理解了注意力机制，不是通过阅读论文，而是通过运行代码。"
+                        浏览器原生支持MCP是一个里程碑事件。这意味着AI代理不再需要"黑客式"地操作浏览器，而是有了官方支持的标准接口。对于开发者来说，这是一次范式转换——从"如何让AI操作网页"变成了"如何设计AI优先的Web体验"。Web 4.0时代可能比预期来得更早。
                     </div>
-                    <a href="http://karpathy.github.io/2026/02/12/microgpt/" class="hero-link" target="_blank">
-                        阅读原文 <span class="iconify" data-icon="phosphor:arrow-right-duotone"></span>
+                    <a href="https://developer.chrome.com/blog/webmcp-epp" class="hero-link" target="_blank">
+                        阅读官方公告 <span class="iconify" data-icon="phosphor:arrow-right-duotone"></span>
                     </a>
                 </div>
             </article>
@@ -205,58 +199,18 @@
             </div>
             
             <div class="article-list">
-                <a href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" class="article-card">
+                <a href="https://github.com/aklein4/timber" target="_blank" class="article-card">
                     <div class="article-number">01</div>
                     <div class="article-content">
-                        <h3 class="article-title">Chrome浏览器支持MCP协议：WebMCP开启早期预览</h3>
+                        <h3 class="article-title">Timber：Ollama风格的经典机器学习框架，比Python快336倍</h3>
                         <div class="article-summary">
-                            <p><span class="tag"><span class="iconify" data-icon="phosphor:globe-duotone"></span>浏览器</span><span class="tag"><span class="iconify" data-icon="phosphor:plug-duotone"></span>协议</span></p>
-                            <p>Google宣布Chrome浏览器开始支持MCP（Model Context Protocol）协议的早期预览版本。MCP是由Anthropic提出的开放标准，旨在让AI模型能够安全地访问外部工具和数据源。</p>
-                            <p>这意味着开发者可以直接在浏览器中构建AI代理应用，无需额外的桌面客户端。Chrome的这一举措可能彻底改变Web AI应用的形态，让浏览器成为AI代理的主要运行环境。AI代理将能够直接与网页交互、操作DOM、读取和修改内容。</p>
+                            <p><span class="tag"><span class="iconify" data-icon="phosphor:lightning-duotone"></span>2小时前</span><span class="tag"><span class="iconify" data-icon="phosphor:code-duotone"></span>开源</span></p>
+                            <p>一个名为Timber的新项目刚刚发布，它将Ollama的易用性带到经典机器学习领域。开发者声称，在处理传统ML任务时，Timber比纯Python实现快336倍。该项目使用Rust编写核心计算引擎，同时保持了Python友好的API接口。</p>
+                            <p>对于仍然依赖scikit-learn、XGBoost等传统ML工具的开发者来说，这是一个值得关注的新选择。Timber支持常见的分类、回归、聚类任务，并且可以轻松部署到生产环境。</p>
                         </div>
                         <div class="article-commentary">
                             <span class="iconify" data-icon="phosphor:lightbulb-duotone"></span>
-                            浏览器原生支持MCP是一个重大信号：AI代理正在成为Web平台的一等公民。这打开了全新的可能性，Web应用将迎来AI优先的时代。
-                        </div>
-                        <div class="article-footer">
-                            <span class="article-source"><span class="iconify" data-icon="phosphor:globe-duotone"></span>Chrome Blog</span>
-                            <span class="article-link">阅读全文 <span class="iconify" data-icon="phosphor:arrow-up-right-duotone"></span></span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="https://www.reddit.com/r/MachineLearning/comments/1rhuwyt/" target="_blank" class="article-card">
-                    <div class="article-number">02</div>
-                    <div class="article-content">
-                        <h3 class="article-title">94个LLM基准测试报告：开源模型距闭源仅差5分</h3>
-                        <div class="article-summary">
-                            <p><span class="tag"><span class="iconify" data-icon="phosphor:chart-bar-duotone"></span>基准测试</span><span class="tag"><span class="iconify" data-icon="phosphor:open-source-duotone"></span>开源</span></p>
-                            <p>来自whatllm.org的最新报告对94个主流LLM端点进行了全面基准测试。结果显示，开源模型与闭源模型的差距已缩小到5个质量指数点。在智能体任务（τ²-Bench）上，开源模型甚至已经领先。</p>
-                            <p>报告采用的质量指数综合了AIME 2025、LiveCodeBench、GPQA Diamond等多个基准。Gemini 3 Pro Preview和GPT-5.2以73分并列榜首，而开源的GLM-4.7达到了68分。更令人瞩目的是，DeepSeek V3.2以$0.30/M的价格提供了接近GPT-5.1的质量，成本降低85%。</p>
-                        </div>
-                        <div class="article-commentary">
-                            <span class="iconify" data-icon="phosphor:trend-up-duotone"></span>
-                            开源与闭源的差距从2025年初的12分缩小到现在的5分，这个速度超出所有人的预期。开源模型的胜利可能比预期来得更早。
-                        </div>
-                        <div class="article-footer">
-                            <span class="article-source"><span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>Reddit r/ML</span>
-                            <span class="article-link">阅读全文 <span class="iconify" data-icon="phosphor:arrow-up-right-duotone"></span></span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="https://github.com/mandel-macaque/memento" target="_blank" class="article-card">
-                    <div class="article-number">03</div>
-                    <div class="article-content">
-                        <h3 class="article-title">AI写代码的会话应该成为Git提交的一部分吗？</h3>
-                        <div class="article-summary">
-                            <p><span class="tag"><span class="iconify" data-icon="phosphor:code-duotone"></span>开发工具</span><span class="tag"><span class="iconify" data-icon="phosphor:git-branch-duotone"></span>Git</span></p>
-                            <p>Memento项目提出了一个有趣的问题：当AI代理编写代码时，与AI的完整对话历史是否应该被保存在Git仓库中？这个问题的答案可能改变我们对代码审查和知识传承的理解。</p>
-                            <p>传统的代码提交只记录最终结果，但AI辅助编程的价值很大程度上在于过程——为什么选择这个方案？尝试过哪些替代方案？这些信息对于未来的维护者极其宝贵。如果每个提交都包含完整的AI对话历史，代码仓库将变成一个巨大的知识库。</p>
-                        </div>
-                        <div class="article-commentary">
-                            <span class="iconify" data-icon="phosphor:question-duotone"></span>
-                            这是一个看似小众但影响深远的问题。需要新的工具和规范来平衡知识保存与存储成本、隐私问题之间的关系。
+                            经典机器学习并没有被深度学习取代，反而在很多场景下更实用。Timber的出现证明这个领域仍有创新空间。
                         </div>
                         <div class="article-footer">
                             <span class="article-source"><span class="iconify" data-icon="phosphor:github-logo-duotone"></span>GitHub</span>
@@ -265,18 +219,58 @@
                     </div>
                 </a>
 
+                <a href="https://github.com/mandel-macaque/memento" target="_blank" class="article-card">
+                    <div class="article-number">02</div>
+                    <div class="article-content">
+                        <h3 class="article-title">当AI写代码时，会话历史应该成为Git提交的一部分吗？</h3>
+                        <div class="article-summary">
+                            <p><span class="tag"><span class="iconify" data-icon="phosphor:lightning-duotone"></span>3小时前</span><span class="tag"><span class="iconify" data-icon="phosphor:git-branch-duotone"></span>开发工具</span></p>
+                            <p>Memento项目提出了一个引人深思的问题：当AI代理帮助编写代码时，完整的对话历史是否应该被保存在Git仓库中？这个问题的答案可能改变我们对代码审查和知识传承的理解。</p>
+                            <p>传统的代码提交只记录最终结果，但AI辅助编程的价值很大程度上在于过程——为什么选择这个方案？尝试过哪些替代方案？这些信息对于未来的维护者极其宝贵。</p>
+                        </div>
+                        <div class="article-commentary">
+                            <span class="iconify" data-icon="phosphor:question-duotone"></span>
+                            这是一个看似小众但影响深远的问题。代码仓库可能从"结果记录"变成"知识库"。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:github-logo-duotone"></span>GitHub</span>
+                            <span class="article-link">参与讨论 <span class="iconify" data-icon="phosphor:arrow-up-right-duotone"></span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.reddit.com/r/MachineLearning/comments/1rhuwyt/" target="_blank" class="article-card">
+                    <div class="article-number">03</div>
+                    <div class="article-content">
+                        <h3 class="article-title">94个LLM基准测试：开源模型与闭源的差距缩小到5分</h3>
+                        <div class="article-summary">
+                            <p><span class="tag"><span class="iconify" data-icon="phosphor:chart-bar-duotone"></span>基准测试</span><span class="tag"><span class="iconify" data-icon="phosphor:trend-up-duotone"></span>趋势</span></p>
+                            <p>来自whatllm.org的最新报告对94个主流LLM进行了全面基准测试。结果显示，开源模型与闭源模型的差距已从2025年初的12分缩小到现在的5分。在智能体任务上，开源模型甚至已经领先。</p>
+                            <p>报告采用的质量指数综合了AIME 2025、LiveCodeBench、GPQA Diamond等多个基准测试。Gemini 3 Pro和GPT-5.2以73分并列榜首，而开源的GLM-4.7达到了68分。更令人瞩目的是，DeepSeek V3.2以$0.30/M的价格提供了接近顶级模型的性能。</p>
+                        </div>
+                        <div class="article-commentary">
+                            <span class="iconify" data-icon="phosphor:fire-duotone"></span>
+                            开源正在加速追赶。如果这个趋势持续，2026年可能是开源模型全面超越闭源的关键一年。
+                        </div>
+                        <div class="article-footer">
+                            <span class="article-source"><span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>Reddit</span>
+                            <span class="article-link">阅读报告 <span class="iconify" data-icon="phosphor:arrow-up-right-duotone"></span></span>
+                        </div>
+                    </div>
+                </a>
+
                 <a href="https://github.com/aklein4/easy-torch-tpu" target="_blank" class="article-card">
                     <div class="article-number">04</div>
                     <div class="article-content">
-                        <h3 class="article-title">easy-torch-tpu：让PyTorch在Google TPU上训练变得简单</h3>
+                        <h3 class="article-title">easy-torch-tpu：简化PyTorch在Google TPU上的训练体验</h3>
                         <div class="article-summary">
-                            <p><span class="tag"><span class="iconify" data-icon="phosphor:cpu-duotone"></span>硬件</span><span class="tag"><span class="iconify" data-icon="phosphor:fire-duotone"></span>PyTorch</span></p>
-                            <p>一位研究者发布了easy-torch-tpu框架，旨在简化PyTorch在Google TPU上的训练体验。相比于官方的torchprime，这个框架更注重简洁性、灵活性和学术规模的易用性。</p>
-                            <p>框架支持1-100亿参数模型，32-64芯片规模，集成了Weights & Biases实验追踪和Hugging Face数据集流式加载。对于想要尝试TPU但被复杂性劝退的研究者，这是一个很好的起点。PyTorch/XLA的文档和调试体验一直让许多人望而却步。</p>
+                            <p><span class="tag"><span class="iconify" data-icon="phosphor:cpu-duotone"></span>硬件</span><span class="tag"><span class="iconify" data-icon="phosphor:rocket-duotone"></span>工具</span></p>
+                            <p>一位研究者发布了easy-torch-tpu框架，旨在降低PyTorch在Google TPU上的使用门槛。相比于官方的torchprime，这个框架更注重简洁性、灵活性和学术规模的易用性。</p>
+                            <p>框架支持1-100亿参数模型，32-64芯片规模，集成了Weights & Biases实验追踪和Hugging Face数据集流式加载。对于想要尝试TPU但被复杂性劝退的研究者，这是一个很好的起点。</p>
                         </div>
                         <div class="article-commentary">
-                            <span class="iconify" data-icon="phosphor:rocket-duotone"></span>
-                            TPU一直被认为是"难用的硬件"，这个框架降低了TPU的使用门槛，对于需要大规模训练的学术研究是一个好消息。
+                            <span class="iconify" data-icon="phosphor:sparkle-duotone"></span>
+                            TPU一直被认为是"难用的硬件"。这个框架降低了门槛，对于学术研究是个好消息。
                         </div>
                         <div class="article-footer">
                             <span class="article-source"><span class="iconify" data-icon="phosphor:github-logo-duotone"></span>GitHub</span>
@@ -297,28 +291,28 @@
                     <span class="iconify" data-icon="phosphor:fire-duotone"></span>
                     <div>
                         <strong>Hacker News</strong>
-                        <span>Y Combinator 技术社区，AI相关热门话题筛选，1700+赞头条</span>
+                        <span>Y Combinator 技术社区，只选取48小时内的AI相关热门</span>
                     </div>
                 </div>
                 <div class="source-item">
                     <span class="iconify" data-icon="phosphor:reddit-logo-duotone"></span>
                     <div>
                         <strong>Reddit r/MachineLearning</strong>
-                        <span>300万+订阅，机器学习前沿讨论与研究成果</span>
+                        <span>300万+订阅，机器学习前沿讨论</span>
                     </div>
                 </div>
                 <div class="source-item">
                     <span class="iconify" data-icon="phosphor:robot-duotone"></span>
                     <div>
                         <strong>Reddit r/artificial</strong>
-                        <span>人工智能行业资讯、观点与趋势分析</span>
+                        <span>人工智能行业资讯与观点</span>
                     </div>
                 </div>
                 <div class="source-item">
-                    <span class="iconify" data-icon="phosphor:open-ai-logo-duotone"></span>
+                    <span class="iconify" data-icon="phosphor:clock-duotone"></span>
                     <div>
-                        <strong>Reddit r/OpenAI</strong>
-                        <span>OpenAI产品发布、技术讨论与社区动态</span>
+                        <strong>时效性保证</strong>
+                        <span>所有内容均来自过去24-48小时内</span>
                     </div>
                 </div>
             </div>
@@ -333,7 +327,7 @@
             <a href="archive.html">往期</a>
             <a href="https://github.com/andyhuo520/ai-daily" target="_blank">GitHub</a>
         </div>
-        <p class="footer-copyright">© 2026 智讯 AI Daily · Generated by OpenClaw · 2026-03-02</p>
+        <p class="footer-copyright">© 2026 智讯 AI Daily · Generated by OpenClaw · 2026-03-02 11:50</p>
     </footer>
 </body>
 </html>
